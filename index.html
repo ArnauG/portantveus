@@ -3,1016 +3,287 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portant Veus — Editorial</title>
-  <meta name="description" content="Portant Veus és un projecte editorial català dedicat a donar veu a les paraules que mereixen ser escoltades." />
+  <title>Portant Veus — Propostes de Web</title>
+  <meta name="description" content="Selector de propostes de disseny per a la web de Portant Veus, editorial." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="logo-nav.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #FFFFFF;
-      --offwhite: #FAF9F7;
-      --ink: #3D3D3D;
-      --sepia: #6B6B6B;
-      --gold: #F5BE60;
-      --orange: #F0821F;
-      --rust: #E15A1D;
-      --red: #D9432A;
-      --muted: #6B6B6B;
-      --border: #ECE7DF;
+      --paper: #FAFAF8;
+      --card: #FFFFFF;
+      --ink: #1A1A1A;
+      --muted: #666660;
+      --border: #E6E4DD;
+      --accent-1: #8C3A2A;
+      --accent-2: #E15A1D;
+      --accent-3: #2440FF;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--cream);
+      background: var(--paper);
       color: var(--ink);
-      font-family: 'Inter', 'Poppins', sans-serif;
-      font-size: 17px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    h1, h2, h3 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      line-height: 1.15;
-    }
-
-    .label {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--rust);
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 3rem;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .nav-logo img {
-      height: 42px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--rust); }
-
-    /* ── HERO ── */
-    #inici {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 80px;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem 6rem 6rem;
-      position: relative;
-    }
-
-    .hero-left::after {
-      content: '';
-      position: absolute;
-      right: 0; top: 15%; bottom: 15%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--border), transparent);
-    }
-
-    .hero-number {
-      display: none;
-    }
-
-    .hero-eyebrow {
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title {
-      font-size: clamp(3.5rem, 6vw, 6rem);
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      font-weight: 800;
-    }
-
-    .hero-title em {
-      color: var(--rust);
-      font-style: normal;
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 40ch;
-      font-style: normal;
-      margin-bottom: 2.5rem;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--cream);
-      background: linear-gradient(135deg, var(--rust), var(--orange));
-      padding: 1rem 2.2rem;
-      border: 1px solid transparent;
-      border-radius: 50px;
-      transition: all 0.3s;
-      align-self: flex-start;
-      box-shadow: 0 8px 24px rgba(225, 90, 29, 0.25);
-    }
-
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(225, 90, 29, 0.35);
-    }
-
-    .hero-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem;
-      background: var(--ink);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      width: 340px; height: 340px;
-      border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-      background: linear-gradient(135deg, var(--gold), var(--orange) 55%, var(--rust));
-      opacity: 0.9;
-      top: -60px; right: -60px;
-      filter: blur(0px);
-    }
-
-    .hero-right::after {
-      content: '';
-      position: absolute;
-      width: 220px; height: 220px;
-      border-radius: 60% 40% 35% 65% / 55% 45% 55% 45%;
-      background: linear-gradient(135deg, var(--red), var(--rust));
-      opacity: 0.55;
-      bottom: -50px; left: -40px;
-    }
-
-    .hero-quote {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 400px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 2.8rem 2.4rem;
-      backdrop-filter: blur(4px);
-    }
-
-    .hero-quote-mark {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 800;
-      font-size: 5rem;
-      line-height: 0.5;
-      background: linear-gradient(135deg, var(--gold), var(--rust));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .hero-quote p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 500;
-      font-style: normal;
-      color: var(--cream);
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-quote footer {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* ── SECTION BASE ── */
-    section {
-      padding: 7rem 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 3rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-header h2 {
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-    }
-
-    .section-number {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--gold);
-      align-self: flex-start;
-      margin-top: 0.5rem;
-    }
-
-    /* ── PROJECTE EDITORIAL ── */
-    #projecte {
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    #projecte .section-header {
-      border-bottom-color: rgba(255,255,255,0.15);
-    }
-
-    #projecte .section-header h2 { color: var(--cream); }
-    #projecte .label { color: var(--gold); }
-
-    .projecte-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .projecte-text p {
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
-
-    .projecte-text p:first-of-type {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      font-style: normal;
-      font-weight: 500;
-      color: var(--cream);
-      line-height: 1.5;
-    }
-
-    .projecte-valors {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .valor {
-      border-left: 3px solid;
-      border-image: linear-gradient(180deg, var(--gold), var(--rust)) 1;
-      padding-left: 1.5rem;
-    }
-
-    .valor h3 {
-      font-size: 1.3rem;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-    }
-
-    .valor p {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
+      font-family: 'Archivo', sans-serif;
       line-height: 1.6;
+      min-height: 100vh;
     }
 
-    /* ── PROJECTES EN CURS ── */
-    #projectes { background: var(--cream); }
+    header {
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
 
-    .llibres-grid {
+    .eyebrow {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 56ch;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1rem 2rem 6rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+      gap: 1.8rem;
     }
 
-    .llibre-card {
-      background: white;
+    .card {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 14px;
       overflow: hidden;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-
-    .llibre-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(61,61,61,0.14);
-    }
-
-    .llibre-cover {
-      aspect-ratio: 3/4;
-      background: var(--ink);
-      position: relative;
-      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    .llibre-cover.cover-1 { background: linear-gradient(135deg, #E15A1D 0%, #D9432A 100%); }
-    .llibre-cover.cover-2 { background: linear-gradient(135deg, #F0821F 0%, #E15A1D 100%); }
-    .llibre-cover.cover-3 { background: linear-gradient(135deg, #F5BE60 0%, #F0821F 100%); }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(26,22,16,0.1);
+    }
 
-    .llibre-cover-inner {
-      text-align: center;
-      padding: 2rem;
+    .card-swatch {
+      height: 150px;
       position: relative;
-      z-index: 1;
-    }
-
-    .cover-lines {
-      width: 40px;
-      height: 1px;
-      background: rgba(255,255,255,0.3);
-      margin: 0.8rem auto;
-    }
-
-    .llibre-cover-inner .cover-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.95);
-      font-style: normal;
-      line-height: 1.3;
-    }
-
-    .llibre-cover-inner .cover-author {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-top: 1rem;
-    }
-
-    .cover-ornament {
-      position: absolute;
-      bottom: 1rem; right: 1rem;
-      width: 34px; height: 34px;
-      border-radius: 50% 50% 50% 6px;
-      border: 1px solid rgba(255,255,255,0.35);
-    }
-
-    .llibre-info {
-      padding: 1.8rem;
-    }
-
-    .llibre-tag {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-
-    .llibre-titol {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: var(--ink);
-      line-height: 1.2;
-    }
-
-    .llibre-autor {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      color: var(--sepia);
-      margin-bottom: 1rem;
-    }
-
-    .divider-line {
-      height: 1px;
-      background: var(--border);
-      margin: 1rem 0;
-    }
-
-    .bio-label {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .bio-text {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .sinopsis-text {
-      font-size: 0.92rem;
-      color: var(--ink);
-      line-height: 1.7;
-      font-style: normal;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-top: 1.2rem;
-    }
-
-    .status-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--rust));
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* ── EQUIP ── */
-    #equip { background: var(--offwhite); }
-
-    .equip-intro {
-      max-width: 65ch;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-      font-style: normal;
-      color: var(--muted);
-      margin-bottom: 4rem;
-      line-height: 1.6;
-    }
-
-    .equip-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .membre {
-      position: relative;
-    }
-
-    .membre-foto {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--ink);
-      margin-bottom: 1.2rem;
-      border-radius: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .membre-foto-inner {
-      position: absolute;
-      inset: 0;
       display: flex;
       align-items: flex-end;
       padding: 1.2rem;
     }
 
-    .membre-foto.m1 { background: linear-gradient(160deg, #E15A1D, #D9432A); }
-    .membre-foto.m2 { background: linear-gradient(160deg, #F0821F, #E15A1D); }
-    .membre-foto.m3 { background: linear-gradient(160deg, #F5BE60, #F0821F); }
-    .membre-foto.m4 { background: linear-gradient(160deg, #D9432A, #8C3220); }
-
-    .membre-initials {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: rgba(255,255,255,0.25);
-      line-height: 1;
-    }
-
-    .membre-nom {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.2rem;
+    .card-swatch .tag {
+      font-family: 'Archivo', sans-serif;
       font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
       color: var(--ink);
-      margin-bottom: 0.2rem;
     }
 
-    .membre-carrec {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-bottom: 0.7rem;
+    .swatch-01 { background: linear-gradient(135deg, #F5F0E8 0%, #D4C9B5 60%, #8C3A2A 100%); }
+    .swatch-02 { background: linear-gradient(135deg, #FFFFFF 0%, #F5BE60 55%, #E15A1D 100%); }
+    .swatch-03 { background: #0D0D0D; }
+    .swatch-03::after {
+      content: '';
+      position: absolute;
+      width: 70px; height: 70px;
+      background: #2440FF;
+      top: 18px; right: 18px;
+      transform: rotate(-6deg);
+    }
+    .swatch-03::before {
+      content: '';
+      position: absolute;
+      width: 26px; height: 26px;
+      background: #E8FF3D;
+      bottom: 20px; left: 20px;
+    }
+    .swatch-04 { background: linear-gradient(135deg, #FAF7F2 0%, #EDE8DE 55%, #B5603C 100%); }
+    .swatch-05 { background: linear-gradient(135deg, #1B1B1B 0%, #121212 60%, #5B1A24 100%); }
+    .swatch-05::after {
+      content: '';
+      position: absolute;
+      width: 60px; height: 60px;
+      border: 2px solid #B08D57;
+      top: 20px; right: 20px;
+      transform: rotate(45deg);
+    }
+    .swatch-06 { background: linear-gradient(135deg, #FFFCF5 0%, #7C5CFF 55%, #FF6F91 100%); }
+    .swatch-06::after {
+      content: '';
+      position: absolute;
+      width: 46px; height: 46px;
+      background: #FFC53D;
+      border-radius: 50%;
+      top: 22px; right: 26px;
     }
 
-    .membre-bio {
-      font-size: 0.88rem;
+    .card-body { padding: 1.6rem 1.6rem 1.8rem; flex: 1; display: flex; flex-direction: column; }
+
+    .card-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
       color: var(--muted);
-      line-height: 1.6;
+      margin-bottom: 0.4rem;
     }
 
-    /* ── CONTACT / FOOTER ── */
-    #contacte {
-      background: var(--ink);
-      padding: 6rem 0 4rem;
-    }
-
-    #contacte .label { color: var(--gold); }
-
-    .contacte-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      margin-bottom: 5rem;
-    }
-
-    .contacte-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      font-weight: 800;
-      color: var(--cream);
-      margin-bottom: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .contacte-text {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-
-    .contacte-email {
-      font-family: 'Poppins', sans-serif;
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 1.3rem;
-      font-weight: 600;
-      font-style: normal;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-decoration: none;
-      transition: opacity 0.3s;
+      margin-bottom: 0.6rem;
     }
 
-    .contacte-email:hover { opacity: 0.8; }
-
-    .contacte-dades { display: flex; flex-direction: column; gap: 2rem; }
-
-    .dada h4 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sepia);
-      margin-bottom: 0.5rem;
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      flex: 1;
     }
 
-    .dada p {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 1.1rem;
-      color: var(--cream);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      opacity: 0.75;
-    }
-
-    .footer-logo img {
-      height: 26px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.55;
-    }
-
-    .footer-copy {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.65rem;
+    .card-cta {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    .card-cta::after { content: '→'; transition: transform 0.25s; }
+    .card:hover .card-cta::after { transform: translateX(4px); }
+
+    footer {
+      text-align: center;
+      padding: 0 2rem 4rem;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      #inici { grid-template-columns: 1fr; }
-      .hero-right { min-height: 50vh; }
-      .projecte-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .llibres-grid { grid-template-columns: repeat(2, 1fr); }
-      .equip-grid { grid-template-columns: repeat(2, 1fr); }
-      .contacte-inner { grid-template-columns: 1fr; gap: 3rem; }
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      .hero-left { padding: 4rem 1.5rem; }
-      .container { padding: 0 1.5rem; }
-      section { padding: 5rem 0; }
-      .llibres-grid { grid-template-columns: 1fr; }
-      .equip-grid { grid-template-columns: 1fr 1fr; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#inici" class="nav-logo"><img src="logo-nav.png" alt="Portant Veus Editorial" /></a>
-    <ul class="nav-links">
-      <li><a href="#projecte">El Projecte</a></li>
-      <li><a href="#projectes">Publicacions</a></li>
-      <li><a href="#equip">L'Equip</a></li>
-      <li><a href="#contacte">Contacte</a></li>
-    </ul>
-  </nav>
+  <header>
+    <div class="eyebrow">Portant Veus · Editorial</div>
+    <h1>Propostes de disseny</h1>
+    <p>Sis direccions visuals per a la web de l'editorial. Tria una proposta per veure-la sencera.</p>
+  </header>
 
-  <!-- HERO -->
-  <section id="inici">
-    <div class="hero-left">
-      <div class="hero-number">I</div>
-      <div class="hero-eyebrow">
-        <span class="label">Editorial Independent · Català</span>
+  <main>
+
+    <a href="proposta01.html" class="card">
+      <div class="card-swatch swatch-01">
+        <span class="tag">Clàssic</span>
       </div>
-      <h1 class="hero-title">Portant<br><em>Veus</em></h1>
-      <p class="hero-subtitle">Donem veu a les paraules que mereixen ser escoltades. Un projecte editorial arrelat a la cultura i la llengua catalanes.</p>
-      <a href="#projecte" class="hero-cta">Descobreix el projecte</a>
-    </div>
-    <div class="hero-right">
-      <div class="hero-quote">
-        <span class="hero-quote-mark">"</span>
-        <p>Les paraules no moren quan s'escriuen. Neixen de nou cada vegada que algú les llegeix.</p>
-        <footer>Lema editorial</footer>
+      <div class="card-body">
+        <div class="card-number">Proposta 01</div>
+        <h2 class="card-title">Literària</h2>
+        <p class="card-desc">Estil editorial clàssic: serif elegant, tons crema, ink, sépia i or. Ornaments discrets i aire d'imprenta tradicional.</p>
+        <span class="card-cta">Veure proposta</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <!-- PROJECTE EDITORIAL -->
-  <section id="projecte">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-number">01</span>
-        <div>
-          <span class="label">Qui som</span>
-          <h2>El Projecte Editorial</h2>
-        </div>
+    <a href="proposta02.html" class="card">
+      <div class="card-swatch swatch-02">
+        <span class="tag">Modern</span>
       </div>
-      <div class="projecte-grid">
-        <div class="projecte-text fade-up">
-          <p>Portant Veus és una editorial independent nascuda de la convicció que la literatura en català ha de tenir espais propis, valents i rigorosos.</p>
-          <p>Fundada per un col·lectiu d'editors, escriptors i lectors apassionats, Portant Veus neix amb el compromís de publicar obres que interpel·len, que transformen i que queden. No cerquem la literatura còmoda ni l'èxit fàcil: cerquem les veus que diuen allò que d'altres no s'atreveixen a dir.</p>
-          <p>El nostre catàleg abraça la narrativa contemporània, l'assaig creatiu i la poesia. Treballem amb autors novells i consagrats, sempre amb el mateix criteri: la qualitat literària i la necessitat de la paraula.</p>
-          <p>Portant Veus és també un projecte cultural. Organitzem presentacions, clubs de lectura i trobades que fan de la literatura un espai de diàleg i comunitat. Perquè un llibre no acaba quan es tanca: comença quan s'obre.</p>
-        </div>
-        <div class="projecte-valors fade-up">
-          <div class="valor">
-            <h3>Llengua i identitat</h3>
-            <p>La llengua catalana és el nostre vehicle i el nostre compromís. Publiquem en català perquè creiem en la seva vitalitat i en la seva capacitat de dir-ho tot.</p>
-          </div>
-          <div class="valor">
-            <h3>Rigor editorial</h3>
-            <p>Cada text que publiquem ha passat per un procés de lectura, debat i cura que garanteix la qualitat literària i la coherència del nostre catàleg.</p>
-          </div>
-          <div class="valor">
-            <h3>Proximitat i comunitat</h3>
-            <p>Som una editorial de proximitat. Els nostres autors i lectors no són clients ni productes: són membres d'una comunitat lectora que creixem junts.</p>
-          </div>
-          <div class="valor">
-            <h3>Independència total</h3>
-            <p>No depenem de grans grups ni d'interessos externs. La nostra independència és la nostra fortalesa i la garantia de la nostra llibertat editorial.</p>
-          </div>
-        </div>
+      <div class="card-body">
+        <div class="card-number">Proposta 02</div>
+        <h2 class="card-title">Contemporània càlida</h2>
+        <p class="card-desc">Sans-serif rodona, fons blanc i paleta taronja/vermell/or extreta del logo. Formes arrodonides i botons en pastilla.</p>
+        <span class="card-cta">Veure proposta</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <!-- PROJECTES EN CURS -->
-  <section id="projectes">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-number">02</span>
-        <div>
-          <span class="label">Catàleg</span>
-          <h2>Projectes en Curs</h2>
-        </div>
+    <a href="proposta03.html" class="card">
+      <div class="card-swatch swatch-03"></div>
+      <div class="card-body">
+        <div class="card-number">Proposta 03</div>
+        <h2 class="card-title">Brutalista contemporània</h2>
+        <p class="card-desc">Estil Swiss/neo-brutalista: negre i blanc amb cobalt i groc àcid, vores gruixudes, cantonades vives i ombres dures.</p>
+        <span class="card-cta">Veure proposta</span>
       </div>
-      <div class="llibres-grid">
+    </a>
 
-        <!-- Llibre 1 -->
-        <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-1">
-            <div class="cover-ornament"></div>
-            <div class="llibre-cover-inner">
-              <div class="cover-lines"></div>
-              <p class="cover-title">La Pell dels Dies</p>
-              <div class="cover-lines"></div>
-              <p class="cover-author">Mireia Solà Vidal</p>
-            </div>
-          </div>
-          <div class="llibre-info">
-            <span class="llibre-tag">Narrativa · 2025</span>
-            <h3 class="llibre-titol">La Pell dels Dies</h3>
-            <p class="llibre-autor">Mireia Solà Vidal</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sobre l'autora</p>
-            <p class="bio-text">Mireia Solà Vidal (Vic, 1986) és llicenciada en Filologia Catalana i ha exercit com a professora i traductora literària. Ha publicat contes a diverses revistes del país i <em>La Pell dels Dies</em> és la seva primera novel·la.</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">Una dona torna al poble dels seus avis després de dècades d'absència. Allà, entre objectes polsosos i silencis antics, descobreix que la memòria familiar té forats que ningú mai va voler omplir. Una novel·la sobre el temps, la culpa i la necessitat de nomenar allò que ha quedat sense paraules.</p>
-            <div class="status-badge">
-              <span class="status-dot"></span>
-              En preparació · Tardor 2025
-            </div>
-          </div>
-        </article>
-
-        <!-- Llibre 2 -->
-        <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-2">
-            <div class="cover-ornament"></div>
-            <div class="llibre-cover-inner">
-              <div class="cover-lines"></div>
-              <p class="cover-title">Mar Endins, Terra Endins</p>
-              <div class="cover-lines"></div>
-              <p class="cover-author">Jordi Esteve Pons</p>
-            </div>
-          </div>
-          <div class="llibre-info">
-            <span class="llibre-tag">Assaig · 2025</span>
-            <h3 class="llibre-titol">Mar Endins, Terra Endins</h3>
-            <p class="llibre-autor">Jordi Esteve Pons</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sobre l'autor</p>
-            <p class="bio-text">Jordi Esteve Pons (l'Ampolla, 1979) és periodista i escriptor. Ha treballat com a corresponsal a l'Europa de l'Est i col·labora habitualment a diverses publicacions culturals. El seu assaig anterior, <em>Frontera</em>, va guanyar el Premi Crítica Serra d'Or.</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">Un viatge intel·lectual a través de les costes mediterrànies per explorar com la geografia modela la identitat dels pobles. Esteve Pons barreja l'autobiografia, la crònica periodística i l'assaig per reflexionar sobre les arrels, el desarrelament i els llocs que ens fan qui som.</p>
-            <div class="status-badge">
-              <span class="status-dot"></span>
-              En preparació · Primavera 2026
-            </div>
-          </div>
-        </article>
-
-        <!-- Llibre 3 -->
-        <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-3">
-            <div class="cover-ornament"></div>
-            <div class="llibre-cover-inner">
-              <div class="cover-lines"></div>
-              <p class="cover-title">Herbes Silvestres</p>
-              <div class="cover-lines"></div>
-              <p class="cover-author">Núria Casademunt</p>
-            </div>
-          </div>
-          <div class="llibre-info">
-            <span class="llibre-tag">Poesia · 2025</span>
-            <h3 class="llibre-titol">Herbes Silvestres</h3>
-            <p class="llibre-autor">Núria Casademunt</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sobre l'autora</p>
-            <p class="bio-text">Núria Casademunt (Olot, 1994) és poeta i activista cultural. Guanyadora del Premi de Poesia Jove Miquel Martí i Pol (2022), els seus poemes han estat traduïts al castellà i a l'occità. Coordina el cicle de poesia oral <em>Veus al Carrer</em>.</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">Un recull de vint-i-quatre poemes que dialoguen amb la natura, el cos i la resistència quotidiana. <em>Herbes Silvestres</em> és un cant a allò que creix sense permís, a les veus que s'obren camí entre les pedres i al cos com a territori de reivindicació i tendresa.</p>
-            <div class="status-badge">
-              <span class="status-dot"></span>
-              En revisió final · Hivern 2025
-            </div>
-          </div>
-        </article>
-
+    <a href="proposta04.html" class="card">
+      <div class="card-swatch swatch-04">
+        <span class="tag">Minimal</span>
       </div>
-    </div>
-  </section>
-
-  <!-- EQUIP -->
-  <section id="equip">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-number">03</span>
-        <div>
-          <span class="label">Les persones</span>
-          <h2>El Grup Editorial</h2>
-        </div>
+      <div class="card-body">
+        <div class="card-number">Proposta 04</div>
+        <h2 class="card-title">Minimal nòrdica</h2>
+        <p class="card-desc">Molt espai en blanc, serif humanista fina, línies primes i paleta terrosa (sorra, terracota, sàlvia). Sobrietat i calma.</p>
+        <span class="card-cta">Veure proposta</span>
       </div>
-      <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres porta una mirada diferent, però compartim la mateixa passió: que la literatura catalana tingui el lloc que mereix.</p>
-      <div class="equip-grid">
+    </a>
 
-        <div class="membre fade-up">
-          <div class="membre-foto m1">
-            <div class="membre-foto-inner">
-              <span class="membre-initials">AR</span>
-            </div>
-          </div>
-          <p class="membre-carrec">Directora Editorial</p>
-          <h3 class="membre-nom">Anna Roca Ferrer</h3>
-          <p class="membre-bio">Editora amb més de quinze anys d'experiència en el sector literari català. Va dirigir el departament de narrativa d'una de les principals editorials del país abans de fundar Portant Veus. Llicenciada en Teoria de la Literatura per la UB.</p>
-        </div>
-
-        <div class="membre fade-up">
-          <div class="membre-foto m2">
-            <div class="membre-foto-inner">
-              <span class="membre-initials">MV</span>
-            </div>
-          </div>
-          <p class="membre-carrec">Editor i Corrector</p>
-          <h3 class="membre-nom">Marc Vilà Torrents</h3>
-          <p class="membre-bio">Filòleg i corrector literari. Ha treballat com a editor per a diverses editorials i és professor de llengua catalana. Especialitzat en narrativa contemporània i en la recerca de nous autors. Fundador del club de lectura Llegim en Veu Alta.</p>
-        </div>
-
-        <div class="membre fade-up">
-          <div class="membre-foto m3">
-            <div class="membre-foto-inner">
-              <span class="membre-initials">LG</span>
-            </div>
-          </div>
-          <p class="membre-carrec">Disseny i Identitat Visual</p>
-          <h3 class="membre-nom">Laia Garriga Mas</h3>
-          <p class="membre-bio">Dissenyadora gràfica especialitzada en identitat editorial i disseny de llibres. Ha obtingut diversos premis de disseny i treballa perquè cada publicació de Portant Veus sigui tan bella per fora com és valuosa per dins.</p>
-        </div>
-
-        <div class="membre fade-up">
-          <div class="membre-foto m4">
-            <div class="membre-foto-inner">
-              <span class="membre-initials">RP</span>
-            </div>
-          </div>
-          <p class="membre-carrec">Comunicació i Difusió</p>
-          <h3 class="membre-nom">Ramon Puig Sala</h3>
-          <p class="membre-bio">Periodista cultural i gestor de comunicació. Ha treballat en mitjans de referència en llengua catalana i coordina la comunicació, les xarxes socials i les relacions amb els mitjans de Portant Veus. Creeu que un bon llibre sense lectors és un projecte inacabat.</p>
-        </div>
-
+    <a href="proposta05.html" class="card">
+      <div class="card-swatch swatch-05">
+        <span class="tag">Noir</span>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACTE -->
-  <section id="contacte">
-    <div class="container">
-      <div class="contacte-inner">
-        <div class="fade-up">
-          <span class="label">Escriu-nos</span>
-          <h2 class="contacte-title">Parlem?</h2>
-          <p class="contacte-text">Estem oberts a rebre originals, propostes de col·laboració i qualsevol iniciativa que comparteixi els nostres valors. Si tens un projecte literari i creus que Portant Veus és el teu lloc, t'estàvem esperant.</p>
-          <a href="mailto:hola@portantveus.cat" class="contacte-email">hola@portantveus.cat</a>
-        </div>
-        <div class="contacte-dades fade-up">
-          <div class="dada">
-            <h4>Adreça</h4>
-            <p>Carrer de les Lletres, 12<br>08001 Barcelona</p>
-          </div>
-          <div class="dada">
-            <h4>Originals i propostes</h4>
-            <p>originals@portantveus.cat</p>
-          </div>
-          <div class="dada">
-            <h4>Premsa i comunicació</h4>
-            <p>premsa@portantveus.cat</p>
-          </div>
-          <div class="dada">
-            <h4>Xarxes socials</h4>
-            <p>@portantveus</p>
-          </div>
-        </div>
+      <div class="card-body">
+        <div class="card-number">Proposta 05</div>
+        <h2 class="card-title">Noir editorial</h2>
+        <p class="card-desc">Fons gairebé negre, serif clàssic itàlic i accents bronze/vinatell. Aire premium d'edició de col·leccionista.</p>
+        <span class="card-cta">Veure proposta</span>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-logo"><img src="logo-nav.png" alt="Portant Veus" /></span>
-        <span class="footer-copy">© 2025 Portant Veus · Tots els drets reservats · Editorial independent en llengua catalana</span>
+    </a>
+
+    <a href="proposta06.html" class="card">
+      <div class="card-swatch swatch-06">
+        <span class="tag">Vibrant</span>
       </div>
-    </div>
-  </section>
+      <div class="card-body">
+        <div class="card-number">Proposta 06</div>
+        <h2 class="card-title">Pop vibrant</h2>
+        <p class="card-desc">Formes orgàniques tipus blob, tipografia rodona i juganera, paleta violeta/coral/menta/groc. Energètica i propera.</p>
+        <span class="card-cta">Veure proposta</span>
+      </div>
+    </a>
 
-  <script>
-    // Intersection Observer per animacions fade-up
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 120);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+  </main>
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  <footer>
+    Selector de propostes · No forma part de cap web final
+  </footer>
 
-    // Nav highlight actiu
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 120) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href') === '#' + current) {
-          link.style.color = 'var(--rust)';
-        }
-      });
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portant Veus — Editorial</title>
+  <meta name="description" content="Portant Veus és un projecte editorial català dedicat a donar veu a les paraules que mereixen ser escoltades." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,400;9..144,1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo-proposta4-mark.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #FAF7F2;
+      --sand: #EDE8DE;
+      --ink: #2B2A26;
+      --terracotta: #B5603C;
+      --sage: #6B7A63;
+      --line: #D8D2C4;
+      --muted: #8A8578;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .label {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.6rem 4rem;
+      background: rgba(250, 247, 242, 0.9);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 30px; width: auto; display: block; }
+
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* ── HERO ── */
+    #inici {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      padding-top: 90px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 5rem 6rem 7rem;
+      position: relative;
+    }
+
+    .hero-number { display: none; }
+
+    .hero-eyebrow { margin-bottom: 2rem; }
+
+    .hero-title {
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      color: var(--ink);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--terracotta);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 38ch;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--ink);
+      align-self: flex-start;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--ink);
+      transition: all 0.3s;
+    }
+
+    .hero-cta:hover { color: var(--terracotta); border-color: var(--terracotta); gap: 1rem; }
+
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      background: var(--sand);
+      position: relative;
+    }
+
+    .hero-quote {
+      max-width: 380px;
+      text-align: left;
+    }
+
+    .hero-quote-mark {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 4.5rem;
+      line-height: 0.6;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-quote p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-quote footer {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 8rem 0; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 4rem; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      margin-bottom: 5rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-header h2 { font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 300; }
+
+    .section-number {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--muted);
+      align-self: flex-start;
+      margin-top: 0.4rem;
+    }
+
+    /* ── PROJECTE EDITORIAL ── */
+    #projecte { background: var(--paper); color: var(--ink); }
+
+    .projecte-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: start; }
+
+    .projecte-text p { color: var(--muted); margin-bottom: 1.6rem; font-size: 1.02rem; font-weight: 300; }
+
+    .projecte-text p:first-of-type {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .projecte-valors { display: flex; flex-direction: column; gap: 2.2rem; }
+
+    .valor { border-left: 1px solid var(--terracotta); padding-left: 1.6rem; }
+    .valor:nth-child(2) { border-left-color: var(--sage); }
+    .valor:nth-child(3) { border-left-color: var(--terracotta); }
+    .valor:nth-child(4) { border-left-color: var(--sage); }
+
+    .valor h3 { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.6rem; font-weight: 400; }
+    .valor p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* ── PROJECTES EN CURS ── */
+    #projectes { background: var(--sand); }
+
+    .llibres-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+
+    .llibre-card { background: var(--paper); border: 1px solid var(--line); overflow: hidden; transition: transform 0.4s; }
+    .llibre-card:hover { transform: translateY(-4px); }
+
+    .llibre-cover {
+      aspect-ratio: 3/4;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+    }
+
+    .llibre-cover.cover-1 { background: var(--terracotta); }
+    .llibre-cover.cover-2 { background: var(--sage); }
+    .llibre-cover.cover-3 { background: var(--sand); border-bottom: 1px solid var(--line); }
+
+    .llibre-cover-inner { text-align: left; position: relative; z-index: 1; }
+    .cover-lines { display: none; }
+
+    .llibre-cover-inner .cover-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--paper);
+      line-height: 1.3;
+    }
+
+    .llibre-cover.cover-3 .cover-title { color: var(--ink); }
+
+    .llibre-cover-inner .cover-author {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250,247,242,0.75);
+      margin-top: 0.9rem;
+      display: block;
+    }
+
+    .llibre-cover.cover-3 .cover-author { color: var(--muted); }
+
+    .cover-ornament { display: none; }
+
+    .llibre-info { padding: 2rem; }
+
+    .llibre-tag {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.9rem;
+      display: block;
+    }
+
+    .llibre-titol { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--ink); }
+    .llibre-autor { font-family: 'Work Sans', sans-serif; font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; font-weight: 300; }
+    .divider-line { height: 1px; background: var(--line); margin: 1.1rem 0; }
+
+    .bio-label { font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+    .bio-text { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; font-weight: 300; }
+    .sinopsis-text { font-size: 0.92rem; color: var(--ink); line-height: 1.8; font-style: italic; font-weight: 300; }
+
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'Work Sans', sans-serif; font-weight: 500;
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--sage); margin-top: 1.4rem;
+    }
+
+    .status-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* ── EQUIP ── */
+    #equip { background: var(--paper); }
+
+    .equip-intro { max-width: 62ch; font-family: 'Fraunces', serif; font-size: 1.3rem; font-style: italic; font-weight: 300; color: var(--muted); margin-bottom: 4.5rem; line-height: 1.7; }
+
+    .equip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem; }
+
+    .membre { position: relative; }
+
+    .membre-foto { width: 100%; aspect-ratio: 3/4; margin-bottom: 1.3rem; position: relative; overflow: hidden; }
+    .membre-foto-inner { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 1.3rem; }
+
+    .membre-foto.m1 { background: var(--terracotta); }
+    .membre-foto.m2 { background: var(--sage); }
+    .membre-foto.m3 { background: var(--sand); border: 1px solid var(--line); }
+    .membre-foto.m4 { background: #8A7A63; }
+
+    .membre-initials { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 300; font-style: italic; color: rgba(250,247,242,0.4); line-height: 1; }
+    .membre-foto.m3 .membre-initials { color: rgba(43,42,38,0.2); }
+
+    .membre-nom { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.2rem; }
+    .membre-carrec { font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.63rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.8rem; }
+    .membre-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+    /* ── CONTACT / FOOTER ── */
+    #contacte { background: var(--sand); padding: 7rem 0 4rem; }
+
+    .contacte-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; margin-bottom: 5rem; }
+
+    .contacte-title { font-family: 'Fraunces', serif; font-size: clamp(2.2rem, 3.6vw, 3.4rem); font-weight: 300; font-style: italic; color: var(--ink); margin-bottom: 1.2rem; margin-top: 0.6rem; }
+    .contacte-text { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+
+    .contacte-email {
+      font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 1.05rem;
+      color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta); padding-bottom: 2px;
+      transition: color 0.3s;
+    }
+    .contacte-email:hover { color: var(--sage); border-color: var(--sage); }
+
+    .contacte-dades { display: flex; flex-direction: column; gap: 2rem; }
+    .dada h4 { font-family: 'Work Sans', sans-serif; font-weight: 500; font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+    .dada p { font-family: 'Fraunces', serif; font-weight: 400; font-size: 1.05rem; color: var(--ink); }
+
+    .footer-bottom { border-top: 1px solid var(--line); padding-top: 2.2rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { display: flex; align-items: center; opacity: 0.7; }
+    .footer-logo img { height: 20px; width: auto; }
+    .footer-copy { font-family: 'Work Sans', sans-serif; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--muted); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #inici { grid-template-columns: 1fr; }
+      .hero-right { min-height: 50vh; }
+      .projecte-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .llibres-grid { grid-template-columns: repeat(2, 1fr); }
+      .equip-grid { grid-template-columns: repeat(2, 1fr); }
+      .contacte-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1.2rem 1.6rem; }
+      .nav-links { gap: 1.3rem; }
+      .hero-left { padding: 4rem 1.6rem; }
+      .container { padding: 0 1.6rem; }
+      section { padding: 5rem 0; }
+      .llibres-grid { grid-template-columns: 1fr; }
+      .equip-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#inici" class="nav-logo"><img src="logo-proposta4-horizontal.png" alt="Portant Veus Editorial" /></a>
+    <ul class="nav-links">
+      <li><a href="#projecte">El Projecte</a></li>
+      <li><a href="#projectes">Publicacions</a></li>
+      <li><a href="#equip">L'Equip</a></li>
+      <li><a href="#contacte">Contacte</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inici">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="label">Editorial Independent · Català</span>
+      </div>
+      <h1 class="hero-title">Portant<br><em>Veus</em></h1>
+      <p class="hero-subtitle">Donem veu a les paraules que mereixen ser escoltades. Un projecte editorial arrelat a la cultura i la llengua catalanes.</p>
+      <a href="#projecte" class="hero-cta">Descobreix el projecte →</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-quote">
+        <span class="hero-quote-mark">"</span>
+        <p>Les paraules no moren quan s'escriuen. Neixen de nou cada vegada que algú les llegeix.</p>
+        <footer>Lema editorial</footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTE EDITORIAL -->
+  <section id="projecte">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">01</span>
+        <div>
+          <span class="label">Qui som</span>
+          <h2>El Projecte Editorial</h2>
+        </div>
+      </div>
+      <div class="projecte-grid">
+        <div class="projecte-text fade-up">
+          <p>Portant Veus és una editorial independent nascuda de la convicció que la literatura en català ha de tenir espais propis, valents i rigorosos.</p>
+          <p>Fundada per un col·lectiu d'editors, escriptors i lectors apassionats, Portant Veus neix amb el compromís de publicar obres que interpel·len, que transformen i que queden. No cerquem la literatura còmoda ni l'èxit fàcil: cerquem les veus que diuen allò que d'altres no s'atreveixen a dir.</p>
+          <p>El nostre catàleg abraça la narrativa contemporània, l'assaig creatiu i la poesia. Treballem amb autors novells i consagrats, sempre amb el mateix criteri: la qualitat literària i la necessitat de la paraula.</p>
+          <p>Portant Veus és també un projecte cultural. Organitzem presentacions, clubs de lectura i trobades que fan de la literatura un espai de diàleg i comunitat. Perquè un llibre no acaba quan es tanca: comença quan s'obre.</p>
+        </div>
+        <div class="projecte-valors fade-up">
+          <div class="valor">
+            <h3>Llengua i identitat</h3>
+            <p>La llengua catalana és el nostre vehicle i el nostre compromís. Publiquem en català perquè creiem en la seva vitalitat i en la seva capacitat de dir-ho tot.</p>
+          </div>
+          <div class="valor">
+            <h3>Rigor editorial</h3>
+            <p>Cada text que publiquem ha passat per un procés de lectura, debat i cura que garanteix la qualitat literària i la coherència del nostre catàleg.</p>
+          </div>
+          <div class="valor">
+            <h3>Proximitat i comunitat</h3>
+            <p>Som una editorial de proximitat. Els nostres autors i lectors no són clients ni productes: són membres d'una comunitat lectora que creixem junts.</p>
+          </div>
+          <div class="valor">
+            <h3>Independència total</h3>
+            <p>No depenem de grans grups ni d'interessos externs. La nostra independència és la nostra fortalesa i la garantia de la nostra llibertat editorial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTES EN CURS -->
+  <section id="projectes">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">02</span>
+        <div>
+          <span class="label">Catàleg</span>
+          <h2>Projectes en Curs</h2>
+        </div>
+      </div>
+      <div class="llibres-grid">
+
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-1">
+            <div class="llibre-cover-inner">
+              <p class="cover-title">La Pell dels Dies</p>
+              <span class="cover-author">Mireia Solà Vidal</span>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Narrativa · 2025</span>
+            <h3 class="llibre-titol">La Pell dels Dies</h3>
+            <p class="llibre-autor">Mireia Solà Vidal</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sobre l'autora</p>
+            <p class="bio-text">Mireia Solà Vidal (Vic, 1986) és llicenciada en Filologia Catalana i ha exercit com a professora i traductora literària. Ha publicat contes a diverses revistes del país i <em>La Pell dels Dies</em> és la seva primera novel·la.</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">Una dona torna al poble dels seus avis després de dècades d'absència. Allà, entre objectes polsosos i silencis antics, descobreix que la memòria familiar té forats que ningú mai va voler omplir. Una novel·la sobre el temps, la culpa i la necessitat de nomenar allò que ha quedat sense paraules.</p>
+            <div class="status-badge"><span class="status-dot"></span>En preparació · Tardor 2025</div>
+          </div>
+        </article>
+
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-2">
+            <div class="llibre-cover-inner">
+              <p class="cover-title">Mar Endins, Terra Endins</p>
+              <span class="cover-author">Jordi Esteve Pons</span>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Assaig · 2025</span>
+            <h3 class="llibre-titol">Mar Endins, Terra Endins</h3>
+            <p class="llibre-autor">Jordi Esteve Pons</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sobre l'autor</p>
+            <p class="bio-text">Jordi Esteve Pons (l'Ampolla, 1979) és periodista i escriptor. Ha treballat com a corresponsal a l'Europa de l'Est i col·labora habitualment a diverses publicacions culturals. El seu assaig anterior, <em>Frontera</em>, va guanyar el Premi Crítica Serra d'Or.</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">Un viatge intel·lectual a través de les costes mediterrànies per explorar com la geografia modela la identitat dels pobles. Esteve Pons barreja l'autobiografia, la crònica periodística i l'assaig per reflexionar sobre les arrels, el desarrelament i els llocs que ens fan qui som.</p>
+            <div class="status-badge"><span class="status-dot"></span>En preparació · Primavera 2026</div>
+          </div>
+        </article>
+
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-3">
+            <div class="llibre-cover-inner">
+              <p class="cover-title">Herbes Silvestres</p>
+              <span class="cover-author">Núria Casademunt</span>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Poesia · 2025</span>
+            <h3 class="llibre-titol">Herbes Silvestres</h3>
+            <p class="llibre-autor">Núria Casademunt</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sobre l'autora</p>
+            <p class="bio-text">Núria Casademunt (Olot, 1994) és poeta i activista cultural. Guanyadora del Premi de Poesia Jove Miquel Martí i Pol (2022), els seus poemes han estat traduïts al castellà i a l'occità. Coordina el cicle de poesia oral <em>Veus al Carrer</em>.</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">Un recull de vint-i-quatre poemes que dialoguen amb la natura, el cos i la resistència quotidiana. <em>Herbes Silvestres</em> és un cant a allò que creix sense permís, a les veus que s'obren camí entre les pedres i al cos com a territori de reivindicació i tendresa.</p>
+            <div class="status-badge"><span class="status-dot"></span>En revisió final · Hivern 2025</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIP -->
+  <section id="equip">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">03</span>
+        <div>
+          <span class="label">Les persones</span>
+          <h2>El Grup Editorial</h2>
+        </div>
+      </div>
+      <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres porta una mirada diferent, però compartim la mateixa passió: que la literatura catalana tingui el lloc que mereix.</p>
+      <div class="equip-grid">
+
+        <div class="membre fade-up">
+          <div class="membre-foto m1"><div class="membre-foto-inner"><span class="membre-initials">AR</span></div></div>
+          <p class="membre-carrec">Directora Editorial</p>
+          <h3 class="membre-nom">Anna Roca Ferrer</h3>
+          <p class="membre-bio">Editora amb més de quinze anys d'experiència en el sector literari català. Va dirigir el departament de narrativa d'una de les principals editorials del país abans de fundar Portant Veus. Llicenciada en Teoria de la Literatura per la UB.</p>
+        </div>
+
+        <div class="membre fade-up">
+          <div class="membre-foto m2"><div class="membre-foto-inner"><span class="membre-initials">MV</span></div></div>
+          <p class="membre-carrec">Editor i Corrector</p>
+          <h3 class="membre-nom">Marc Vilà Torrents</h3>
+          <p class="membre-bio">Filòleg i corrector literari. Ha treballat com a editor per a diverses editorials i és professor de llengua catalana. Especialitzat en narrativa contemporània i en la recerca de nous autors. Fundador del club de lectura Llegim en Veu Alta.</p>
+        </div>
+
+        <div class="membre fade-up">
+          <div class="membre-foto m3"><div class="membre-foto-inner"><span class="membre-initials">LG</span></div></div>
+          <p class="membre-carrec">Disseny i Identitat Visual</p>
+          <h3 class="membre-nom">Laia Garriga Mas</h3>
+          <p class="membre-bio">Dissenyadora gràfica especialitzada en identitat editorial i disseny de llibres. Ha obtingut diversos premis de disseny i treballa perquè cada publicació de Portant Veus sigui tan bella per fora com és valuosa per dins.</p>
+        </div>
+
+        <div class="membre fade-up">
+          <div class="membre-foto m4"><div class="membre-foto-inner"><span class="membre-initials">RP</span></div></div>
+          <p class="membre-carrec">Comunicació i Difusió</p>
+          <h3 class="membre-nom">Ramon Puig Sala</h3>
+          <p class="membre-bio">Periodista cultural i gestor de comunicació. Ha treballat en mitjans de referència en llengua catalana i coordina la comunicació, les xarxes socials i les relacions amb els mitjans de Portant Veus. Creeu que un bon llibre sense lectors és un projecte inacabat.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTE -->
+  <section id="contacte">
+    <div class="container">
+      <div class="contacte-inner">
+        <div class="fade-up">
+          <span class="label">Escriu-nos</span>
+          <h2 class="contacte-title">Parlem?</h2>
+          <p class="contacte-text">Estem oberts a rebre originals, propostes de col·laboració i qualsevol iniciativa que comparteixi els nostres valors. Si tens un projecte literari i creus que Portant Veus és el teu lloc, t'estàvem esperant.</p>
+          <a href="mailto:hola@portantveus.cat" class="contacte-email">hola@portantveus.cat</a>
+        </div>
+        <div class="contacte-dades fade-up">
+          <div class="dada"><h4>Adreça</h4><p>Carrer de les Lletres, 12<br>08001 Barcelona</p></div>
+          <div class="dada"><h4>Originals i propostes</h4><p>originals@portantveus.cat</p></div>
+          <div class="dada"><h4>Premsa i comunicació</h4><p>premsa@portantveus.cat</p></div>
+          <div class="dada"><h4>Xarxes socials</h4><p>@portantveus</p></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-logo"><img src="logo-proposta4-mark.png" alt="Portant Veus" /></span>
+        <span class="footer-copy">© 2025 Portant Veus · Tots els drets reservats · Editorial independent en llengua catalana</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => { entry.target.classList.add('visible'); }, i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) link.style.color = 'var(--terracotta)';
+      });
+    });
+  </script>
+</body>
+</html>
