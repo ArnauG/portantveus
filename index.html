@@ -3,287 +3,1167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portant Veus — Propostes de Web</title>
-  <meta name="description" content="Selector de propostes de disseny per a la web de Portant Veus, editorial." />
+  <title>Portantveus | Editorial infantil en català</title>
+  <meta name="description" content="Portantveus és una editorial catalana de contes i àlbums il·lustrats per a infants, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#E15A1D" />
+  <link rel="canonical" href="https://portantveus.cat/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Portantveus" />
+  <meta property="og:title" content="Portantveus | Editorial infantil en català" />
+  <meta property="og:description" content="Editorial catalana de contes i àlbums il·lustrats per a infants, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López." />
+  <meta property="og:url" content="https://portantveus.cat/" />
+  <meta property="og:image" content="https://portantveus.cat/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Portantveus — Editorial en català" />
+  <meta property="og:locale" content="ca_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portantveus | Editorial infantil en català" />
+  <meta name="twitter:description" content="Editorial catalana de contes i àlbums il·lustrats per a infants." />
+  <meta name="twitter:image" content="https://portantveus.cat/og-image.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="logo_portantveus_transparent.png" />
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://portantveus.cat/#organization",
+    "name": "Portantveus",
+    "alternateName": "Portantveus Editorial",
+    "url": "https://portantveus.cat/",
+    "logo": "https://portantveus.cat/logo_portantveus_transparent.png",
+    "image": "https://portantveus.cat/og-image.png",
+    "description": "Editorial catalana de contes i àlbums il·lustrats per a infants.",
+    "email": "hola@portantveus.cat",
+    "inLanguage": "ca",
+    "areaServed": "Catalunya"
+  }
+  </script>
+
+  <!-- Structured data: Catàleg de llibres -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catàleg Portantveus",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Book",
+          "name": "L'Aran i les paraules màgiques",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409003884",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Book",
+          "name": "L'Onada de Contes",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409504787",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Book",
+          "name": "Pi, Pa, Pipa! Començo a llegir de mica en mica!",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409711468",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Book",
+          "name": "El Ratolí Olí",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409197064",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Book",
+          "name": "El Xup-xup de l'Aris",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409604814",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #FAFAF8;
-      --card: #FFFFFF;
-      --ink: #1A1A1A;
-      --muted: #666660;
-      --border: #E6E4DD;
-      --accent-1: #8C3A2A;
-      --accent-2: #E15A1D;
-      --accent-3: #2440FF;
+      --cream: #FFFFFF;
+      --offwhite: #FAF9F7;
+      --ink: #3D3D3D;
+      --sepia: #6B6B6B;
+      --gold: #F5BE60;
+      --orange: #F0821F;
+      --rust: #E15A1D;
+      --red: #D9432A;
+      --muted: #6B6B6B;
+      --border: #ECE7DF;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--paper);
+      background: var(--cream);
       color: var(--ink);
-      font-family: 'Archivo', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: 'Inter', 'Poppins', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      overflow-x: hidden;
     }
 
-    header {
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-family: 'Archivo', sans-serif;
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+      line-height: 1.15;
+    }
+
+    .label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
+      color: var(--rust);
     }
 
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      letter-spacing: -0.01em;
-      margin-bottom: 1.2rem;
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
     }
 
-    header p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 56ch;
-      margin: 0 auto;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 1rem 2rem 6rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
+    .nav-logo {
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      color: inherit;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--rust); }
+
+    /* ── HERO ── */
+    #inici {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 45px rgba(26,22,16,0.1);
-    }
-
-    .card-swatch {
-      height: 150px;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 6rem;
       position: relative;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 15%; bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    }
+
+    .hero-number {
+      display: none;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 7.5vw, 6rem);
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .hero-title em {
+      color: var(--rust);
+      font-style: normal;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 40ch;
+      font-style: normal;
+      margin-bottom: 2.5rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream);
+      background: linear-gradient(135deg, var(--rust), var(--orange));
+      padding: 1rem 2.2rem;
+      border: 1px solid transparent;
+      border-radius: 50px;
+      transition: all 0.3s;
+      align-self: flex-start;
+      box-shadow: 0 8px 24px rgba(225, 90, 29, 0.25);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(225, 90, 29, 0.35);
+    }
+
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      width: 340px; height: 340px;
+      border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+      background: linear-gradient(135deg, var(--gold), var(--orange) 55%, var(--rust));
+      opacity: 0.9;
+      top: -60px; right: -60px;
+      filter: blur(0px);
+    }
+
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      width: 220px; height: 220px;
+      border-radius: 60% 40% 35% 65% / 55% 45% 55% 45%;
+      background: linear-gradient(135deg, var(--red), var(--rust));
+      opacity: 0.55;
+      bottom: -50px; left: -40px;
+    }
+
+    .hero-quote {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 400px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 2.8rem 2.4rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-quote-mark {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 5rem;
+      line-height: 0.5;
+      background: linear-gradient(135deg, var(--gold), var(--rust));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-quote p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      font-style: normal;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-quote footer {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 7rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+    }
+
+    .section-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--gold);
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    /* ── PROJECTE EDITORIAL ── */
+    #projecte {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    #projecte .section-header {
+      border-bottom-color: rgba(255,255,255,0.15);
+    }
+
+    #projecte .section-header h2 { color: var(--cream); }
+    #projecte .label { color: var(--gold); }
+
+    .projecte-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .projecte-text p {
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .projecte-text p:first-of-type {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 500;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+
+    .projecte-valors {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .valor {
+      border-left: 3px solid;
+      border-image: linear-gradient(180deg, var(--gold), var(--rust)) 1;
+      padding-left: 1.5rem;
+    }
+
+    .valor h3 {
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .valor p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* ── PROJECTES EN CURS ── */
+    #projectes { background: var(--cream); }
+
+    .llibres-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .llibre-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .llibre-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(61,61,61,0.14);
+    }
+
+    .llibre-cover {
+      aspect-ratio: 3/4;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .llibre-cover.cover-1 { background: linear-gradient(135deg, #E15A1D 0%, #D9432A 100%); }
+    .llibre-cover.cover-2 { background: linear-gradient(135deg, #F0821F 0%, #E15A1D 100%); }
+    .llibre-cover.cover-3 { background: linear-gradient(135deg, #F5BE60 0%, #F0821F 100%); }
+    .llibre-cover.cover-4 { background: linear-gradient(135deg, #D9432A 0%, #8C3220 100%); }
+    .llibre-cover.cover-5 { background: linear-gradient(135deg, #F5BE60 0%, #E15A1D 100%); }
+
+    .llibre-cover-inner {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-lines {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin: 0.8rem auto;
+    }
+
+    .llibre-cover-inner .cover-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      font-style: normal;
+      line-height: 1.3;
+    }
+
+    .llibre-cover-inner .cover-author {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-top: 1rem;
+    }
+
+    .cover-ornament {
+      position: absolute;
+      bottom: 1rem; right: 1rem;
+      width: 34px; height: 34px;
+      border-radius: 50% 50% 50% 6px;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .llibre-info {
+      padding: 1.8rem;
+    }
+
+    .llibre-tag {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+
+    .llibre-titol {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .llibre-autor {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--sepia);
+      margin-bottom: 1rem;
+    }
+
+    .divider-line {
+      height: 1px;
+      background: var(--border);
+      margin: 1rem 0;
+    }
+
+    .bio-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .bio-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .sinopsis-text {
+      font-size: 0.92rem;
+      color: var(--ink);
+      line-height: 1.7;
+      font-style: normal;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-top: 1.2rem;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--rust));
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── EQUIP ── */
+    #equip { background: var(--offwhite); }
+
+    .equip-intro {
+      max-width: 65ch;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      font-style: normal;
+      color: var(--muted);
+      margin-bottom: 4rem;
+      line-height: 1.6;
+    }
+
+    .equip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .membre {
+      position: relative;
+    }
+
+    .membre-foto {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--ink);
+      margin-bottom: 1.2rem;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .membre-foto-inner {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: flex-end;
       padding: 1.2rem;
     }
 
-    .card-swatch .tag {
-      font-family: 'Archivo', sans-serif;
+    .membre-foto.m1 { background: linear-gradient(160deg, #E15A1D, #D9432A); }
+    .membre-foto.m2 { background: linear-gradient(160deg, #F0821F, #E15A1D); }
+    .membre-foto.m3 { background: linear-gradient(160deg, #F5BE60, #F0821F); }
+
+    .membre-initials {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.25);
+      line-height: 1;
+    }
+
+    .membre-nom {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
       font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .membre-carrec {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       font-size: 0.65rem;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      color: var(--ink);
+      color: var(--rust);
+      margin-bottom: 0.7rem;
     }
 
-    .swatch-01 { background: linear-gradient(135deg, #F5F0E8 0%, #D4C9B5 60%, #8C3A2A 100%); }
-    .swatch-02 { background: linear-gradient(135deg, #FFFFFF 0%, #F5BE60 55%, #E15A1D 100%); }
-    .swatch-03 { background: #0D0D0D; }
-    .swatch-03::after {
-      content: '';
-      position: absolute;
-      width: 70px; height: 70px;
-      background: #2440FF;
-      top: 18px; right: 18px;
-      transform: rotate(-6deg);
-    }
-    .swatch-03::before {
-      content: '';
-      position: absolute;
-      width: 26px; height: 26px;
-      background: #E8FF3D;
-      bottom: 20px; left: 20px;
-    }
-    .swatch-04 { background: linear-gradient(135deg, #FAF7F2 0%, #EDE8DE 55%, #B5603C 100%); }
-    .swatch-05 { background: linear-gradient(135deg, #1B1B1B 0%, #121212 60%, #5B1A24 100%); }
-    .swatch-05::after {
-      content: '';
-      position: absolute;
-      width: 60px; height: 60px;
-      border: 2px solid #B08D57;
-      top: 20px; right: 20px;
-      transform: rotate(45deg);
-    }
-    .swatch-06 { background: linear-gradient(135deg, #FFFCF5 0%, #7C5CFF 55%, #FF6F91 100%); }
-    .swatch-06::after {
-      content: '';
-      position: absolute;
-      width: 46px; height: 46px;
-      background: #FFC53D;
-      border-radius: 50%;
-      top: 22px; right: 26px;
-    }
-
-    .card-body { padding: 1.6rem 1.6rem 1.8rem; flex: 1; display: flex; flex-direction: column; }
-
-    .card-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.75rem;
+    .membre-bio {
+      font-size: 0.88rem;
       color: var(--muted);
-      margin-bottom: 0.4rem;
+      line-height: 1.6;
     }
 
-    .card-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
+    /* ── CONTACT / FOOTER ── */
+    #contacte {
+      background: var(--ink);
+      padding: 6rem 0 4rem;
+    }
+
+    #contacte .label { color: var(--gold); }
+
+    .contacte-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      margin-bottom: 5rem;
+    }
+
+    .contacte-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 800;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .contacte-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .contacte-email {
+      font-family: 'Poppins', sans-serif;
       font-size: 1.3rem;
-      margin-bottom: 0.6rem;
+      font-weight: 600;
+      font-style: normal;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: opacity 0.3s;
     }
 
-    .card-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.4rem;
-      flex: 1;
-    }
+    .contacte-email:hover { opacity: 0.8; }
 
-    .card-cta {
-      font-family: 'Archivo', sans-serif;
-      font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+    .contacte-dades { display: flex; flex-direction: column; gap: 2rem; }
+
+    .dada h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink);
-      display: inline-flex;
+      color: var(--sepia);
+      margin-bottom: 0.5rem;
+    }
+
+    .dada p {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--cream);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.4rem;
     }
 
-    .card-cta::after { content: '→'; transition: transform 0.25s; }
-    .card:hover .card-cta::after { transform: translateX(4px); }
-
-    footer {
-      text-align: center;
-      padding: 0 2rem 4rem;
-      color: var(--muted);
-      font-size: 0.8rem;
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      opacity: 0.9;
+      background: var(--cream);
+      padding: 0.35rem 0.7rem;
+      border-radius: 8px;
     }
 
-    @media (max-width: 860px) {
-      main { grid-template-columns: 1fr; }
+    .footer-logo img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+
+    .footer-copy {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #inici { grid-template-columns: 1fr; }
+      .hero-right { min-height: 50vh; }
+      .projecte-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .llibres-grid { grid-template-columns: repeat(2, 1fr); }
+      .equip-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .contacte-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero-left { padding: 4rem 1.5rem; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 5rem 0; }
+      .llibres-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="eyebrow">Portant Veus · Editorial</div>
-    <h1>Propostes de disseny</h1>
-    <p>Sis direccions visuals per a la web de l'editorial. Tria una proposta per veure-la sencera.</p>
-  </header>
+  <!-- NAV -->
+  <nav>
+    <a href="#inici" class="nav-logo"><img src="logo_portantveus_transparent.png" alt="Portantveus Editorial" width="114" height="42" /></a>
+    <ul class="nav-links">
+      <li><a href="#projecte">El Projecte</a></li>
+      <li><a href="#projectes">Publicacions</a></li>
+      <li><a href="#equip">L'Equip</a></li>
+      <li><a href="#contacte">Contacte</a></li>
+    </ul>
+  </nav>
 
-  <main>
+  <!-- HERO -->
+  <section id="inici">
+    <div class="hero-left">
+      <div class="hero-number">I</div>
+      <div class="hero-eyebrow">
+        <span class="label">Editorial Independent · Català</span>
+      </div>
+      <h1 class="hero-title">Portant<em>veus</em></h1>
+      <p class="hero-subtitle">Donem veu a les paraules que mereixen ser escoltades. Un projecte editorial arrelat a la cultura i la llengua catalanes.</p>
+      <a href="#projecte" class="hero-cta">Descobreix el projecte</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-quote">
+        <span class="hero-quote-mark">"</span>
+        <p>Les paraules no moren quan s'escriuen. Neixen de nou cada vegada que algú les llegeix.</p>
+        <footer>Lema editorial</footer>
+      </div>
+    </div>
+  </section>
 
-    <a href="proposta01.html" class="card">
-      <div class="card-swatch swatch-01">
-        <span class="tag">Clàssic</span>
+  <!-- PROJECTE EDITORIAL -->
+  <section id="projecte">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">01</span>
+        <div>
+          <span class="label">Qui som</span>
+          <h2>El Projecte Editorial</h2>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="card-number">Proposta 01</div>
-        <h2 class="card-title">Literària</h2>
-        <p class="card-desc">Estil editorial clàssic: serif elegant, tons crema, ink, sépia i or. Ornaments discrets i aire d'imprenta tradicional.</p>
-        <span class="card-cta">Veure proposta</span>
+      <div class="projecte-grid">
+        <div class="projecte-text fade-up">
+          <p>Portantveus és una editorial independent nascuda de la convicció que la literatura en català ha de tenir espais propis, valents i rigorosos.</p>
+          <p>Fundada per un col·lectiu d'editors, escriptors i lectors apassionats, Portantveus neix amb el compromís de publicar obres que interpel·len, que transformen i que queden. No cerquem la literatura còmoda ni l'èxit fàcil: cerquem les veus que diuen allò que d'altres no s'atreveixen a dir.</p>
+          <p>El nostre catàleg abraça el conte infantil, l'àlbum il·lustrat i les primeres lectures. Treballem amb la cura que mereix cada etapa de la infància, sempre amb el mateix criteri: la qualitat literària, visual i pedagògica de cada història.</p>
+          <p>Portantveus és també un projecte cultural. Organitzem presentacions, clubs de lectura i trobades que fan de la literatura un espai de diàleg i comunitat. Perquè un llibre no acaba quan es tanca: comença quan s'obre.</p>
+        </div>
+        <div class="projecte-valors fade-up">
+          <div class="valor">
+            <h3>Llengua i identitat</h3>
+            <p>La llengua catalana és el nostre vehicle i el nostre compromís. Publiquem en català perquè creiem en la seva vitalitat i en la seva capacitat de dir-ho tot.</p>
+          </div>
+          <div class="valor">
+            <h3>Rigor editorial</h3>
+            <p>Cada text que publiquem ha passat per un procés de lectura, debat i cura que garanteix la qualitat literària i la coherència del nostre catàleg.</p>
+          </div>
+          <div class="valor">
+            <h3>Proximitat i comunitat</h3>
+            <p>Som una editorial de proximitat. Els nostres autors i lectors no són clients ni productes: són membres d'una comunitat lectora que creixem junts.</p>
+          </div>
+          <div class="valor">
+            <h3>Independència total</h3>
+            <p>No depenem de grans grups ni d'interessos externs. La nostra independència és la nostra fortalesa i la garantia de la nostra llibertat editorial.</p>
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="proposta02.html" class="card">
-      <div class="card-swatch swatch-02">
-        <span class="tag">Modern</span>
+  <!-- PROJECTES EN CURS -->
+  <section id="projectes">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">02</span>
+        <div>
+          <span class="label">Publicacions</span>
+          <h2>El Nostre Catàleg</h2>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="card-number">Proposta 02</div>
-        <h2 class="card-title">Contemporània càlida</h2>
-        <p class="card-desc">Sans-serif rodona, fons blanc i paleta taronja/vermell/or extreta del logo. Formes arrodonides i botons en pastilla.</p>
-        <span class="card-cta">Veure proposta</span>
-      </div>
-    </a>
+      <p class="equip-intro fade-up">Contes i àlbums il·lustrats per als lectors i les lectores més menudes de la casa, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López.</p>
+      <div class="llibres-grid">
 
-    <a href="proposta03.html" class="card">
-      <div class="card-swatch swatch-03"></div>
-      <div class="card-body">
-        <div class="card-number">Proposta 03</div>
-        <h2 class="card-title">Brutalista contemporània</h2>
-        <p class="card-desc">Estil Swiss/neo-brutalista: negre i blanc amb cobalt i groc àcid, vores gruixudes, cantonades vives i ombres dures.</p>
-        <span class="card-cta">Veure proposta</span>
-      </div>
-    </a>
+        <!-- Llibre 1 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-1">
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">L'Aran i les paraules màgiques</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Conte infantil</span>
+            <h3 class="llibre-titol">L'Aran i les paraules màgiques</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">L'Aran sempre ha sentit dir que les paraules tenen molta força, però no ha vist mai que un mot hagi fet un blau a algú ni que el turó de darrere l'escola es bellugui de lloc. A poc a poc, però, anirà descobrint que les paraules són capaces de coses molt més importants: de fer plorar, de fer riure, de fer canviar la manera de veure el món i, sobretot, de fer feliços els invisibles amb una cosa que tots tenim i que tots podem donar. Continuació de <em>L'Aran i els regals màgics</em>.</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-00388-4
+            </div>
+          </div>
+        </article>
 
-    <a href="proposta04.html" class="card">
-      <div class="card-swatch swatch-04">
-        <span class="tag">Minimal</span>
-      </div>
-      <div class="card-body">
-        <div class="card-number">Proposta 04</div>
-        <h2 class="card-title">Minimal nòrdica</h2>
-        <p class="card-desc">Molt espai en blanc, serif humanista fina, línies primes i paleta terrosa (sorra, terracota, sàlvia). Sobrietat i calma.</p>
-        <span class="card-cta">Veure proposta</span>
-      </div>
-    </a>
+        <!-- Llibre 2 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-2">
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">L'Onada de Contes</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Recull de contes</span>
+            <h3 class="llibre-titol">L'Onada de Contes</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">Un recull de contes que viatgen per mirades i móns ben diferents. Entre ells, la història de l'Arata i el Kanaye, dos nens japonesos que viuen al mateix carrer, van a la mateixa escola i fins i tot a la mateixa classe, però viuen realitats molt diferents: quan una onada gegant està a punt de destruir el seu poble, hauran de decidir quines coses importants volen salvar de l'aigua.</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-50478-7
+            </div>
+          </div>
+        </article>
 
-    <a href="proposta05.html" class="card">
-      <div class="card-swatch swatch-05">
-        <span class="tag">Noir</span>
-      </div>
-      <div class="card-body">
-        <div class="card-number">Proposta 05</div>
-        <h2 class="card-title">Noir editorial</h2>
-        <p class="card-desc">Fons gairebé negre, serif clàssic itàlic i accents bronze/vinatell. Aire premium d'edició de col·leccionista.</p>
-        <span class="card-cta">Veure proposta</span>
-      </div>
-    </a>
+        <!-- Llibre 3 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-3">
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">Pi, Pa, Pipa!</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Primeres lectures</span>
+            <h3 class="llibre-titol">Pi, Pa, Pipa!</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text"><em>Començo a llegir de mica en mica!</em> Un llibre per acompanyar els infants en els primers anys de descoberta del món, ple de colors, formes, animals, objectes, números... i lletres! Perquè les lletres obren la porta a una altra dimensió infinita d'històries, d'aventures i de coneixements, <em>Pi, Pa, Pipa!</em> acompanya els petits i les petites de la casa en l'aventura d'aprendre a llegir i de conèixer l'univers que els envolta.</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-71146-8
+            </div>
+          </div>
+        </article>
 
-    <a href="proposta06.html" class="card">
-      <div class="card-swatch swatch-06">
-        <span class="tag">Vibrant</span>
+        <!-- Llibre 4 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-4">
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">El Ratolí Olí</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Conte infantil</span>
+            <h3 class="llibre-titol">El Ratolí Olí</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text">El ratolí Olí és un ratolí com tots els altres: té una cua ben llarga, uns bigotis estirats i uns ullets petitons. Fa amistats a tot arreu, li agrada viatjar, fer gresca i xerinola, i participa a totes, totes, totes les festes populars. Tot canvia, però, quan arriba el Dia del Formatge, i és que tothom es queda ben parat quan descobreix que el pastís de pastanaga, i no pas el formatge, és el primer de la llista dels seus menjars favorits... Això vol dir que l'Olí no és un ratolí de debò? S'atrevirà a lluitar pel pastís de pastanaga?</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-19706-4
+            </div>
+          </div>
+        </article>
+
+        <!-- Llibre 5 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-5">
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">El Xup-xup de l'Aris</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Conte infantil</span>
+            <h3 class="llibre-titol">El Xup-xup de l'Aris</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text"><em>Com es cuina un germanet.</em> Aviat tindreu un germanet o una germaneta? De què estan fets els petitons i les petitones de la llar? Existeix una recepta per fer bebès? Cal que hi afegim sucre? Val més utilitzar el forn, el microones o la panificadora? Viu amb l'Aran l'aventura de cuinar un germanet, fins que l'Aris arriba fent xup-xup per equilibrar la balança i desendreçar tot el nostre món de la manera més bonica. Benvingut, Aris!</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-60481-4
+            </div>
+          </div>
+        </article>
+
       </div>
-      <div class="card-body">
-        <div class="card-number">Proposta 06</div>
-        <h2 class="card-title">Pop vibrant</h2>
-        <p class="card-desc">Formes orgàniques tipus blob, tipografia rodona i juganera, paleta violeta/coral/menta/groc. Energètica i propera.</p>
-        <span class="card-cta">Veure proposta</span>
+    </div>
+  </section>
+
+  <!-- EQUIP -->
+  <section id="equip">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">03</span>
+        <div>
+          <span class="label">Les persones</span>
+          <h2>El Grup Editorial</h2>
+        </div>
       </div>
-    </a>
+      <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres porta una mirada diferent, però compartim la mateixa passió: que la literatura catalana tingui el lloc que mereix.</p>
+      <div class="equip-grid">
 
-  </main>
+        <div class="membre fade-up">
+          <div class="membre-foto m1">
+            <div class="membre-foto-inner">
+              <span class="membre-initials">AG</span>
+            </div>
+          </div>
+          <p class="membre-carrec">Cofundador</p>
+          <h3 class="membre-nom">Arnau Güell Soler</h3>
+          <p class="membre-bio">Cofundador de Portantveus. Impulsa el projecte editorial des dels seus inicis, vetllant perquè cada publicació respongui a la visió i als valors de l'editorial.</p>
+        </div>
 
-  <footer>
-    Selector de propostes · No forma part de cap web final
-  </footer>
+        <div class="membre fade-up">
+          <div class="membre-foto m2">
+            <div class="membre-foto-inner">
+              <span class="membre-initials">AG</span>
+            </div>
+          </div>
+          <p class="membre-carrec">Editora, Traductora i Correctora</p>
+          <h3 class="membre-nom">Anna Godoy López</h3>
+          <p class="membre-bio">S'encarrega de l'edició, la traducció i la correcció dels textos, tenint cura de cada obra perquè arribi als lectors amb tot el rigor i la qualitat que mereix.</p>
+        </div>
 
+        <div class="membre fade-up">
+          <div class="membre-foto m3">
+            <div class="membre-foto-inner">
+              <span class="membre-initials">IG</span>
+            </div>
+          </div>
+          <p class="membre-carrec">Traductor i Il·lustrador</p>
+          <h3 class="membre-nom">Ivan Godoy López</h3>
+          <p class="membre-bio">Combina la traducció amb la il·lustració, aportant al catàleg de Portantveus tant el rigor lingüístic com una mirada visual pròpia.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTE -->
+  <section id="contacte">
+    <div class="container">
+      <div class="contacte-inner">
+        <div class="fade-up">
+          <span class="label">Escriu-nos</span>
+          <h2 class="contacte-title">Parlem?</h2>
+          <p class="contacte-text">Estem oberts a rebre originals, propostes de col·laboració i qualsevol iniciativa que comparteixi els nostres valors. Si tens un projecte literari i creus que Portantveus és el teu lloc, t'estàvem esperant.</p>
+          <a href="mailto:hola@portantveus.cat" class="contacte-email">hola@portantveus.cat</a>
+        </div>
+        <div class="contacte-dades fade-up">
+          <div class="dada">
+            <h4>Adreça</h4>
+            <p>Carrer de les Lletres, 12<br>08001 Barcelona</p>
+          </div>
+          <div class="dada">
+            <h4>Originals i propostes</h4>
+            <p>originals@portantveus.cat</p>
+          </div>
+          <div class="dada">
+            <h4>Premsa i comunicació</h4>
+            <p>premsa@portantveus.cat</p>
+          </div>
+          <div class="dada">
+            <h4>Xarxes socials</h4>
+            <p>@portantveus</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-logo"><img src="logo_portantveus_transparent.png" alt="Portantveus" width="65" height="24" /></span>
+        <span class="footer-copy">© 2026 Portantveus · Tots els drets reservats · Editorial independent en llengua catalana</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer per animacions fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav highlight actiu
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 120) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.color = 'var(--rust)';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
