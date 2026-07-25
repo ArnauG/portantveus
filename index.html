@@ -247,16 +247,26 @@
     }
 
     .hero-title {
-      font-size: clamp(1.9rem, 7.5vw, 6rem);
-      color: var(--ink);
       margin-bottom: 1.5rem;
-      font-weight: 800;
-      white-space: nowrap;
+      line-height: 0;
     }
 
-    .hero-title em {
-      color: var(--rust);
-      font-style: normal;
+    .hero-title img {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
     }
 
     .hero-subtitle {
@@ -879,7 +889,10 @@
       <div class="hero-eyebrow">
         <span class="label">Editorial independent · Català</span>
       </div>
-      <h1 class="hero-title">Portant<em>Veus</em></h1>
+      <h1 class="hero-title">
+        <img src="logo_portantveus_registre.png" alt="Portantveus — Editorial independent en català" width="2293" height="567" />
+        <span class="visually-hidden">Portantveus</span>
+      </h1>
       <p class="hero-subtitle">Portem les veus que mereixen ser escoltades, acompanyem paraules que ens apel·len i ens impacten. Un projecte editorial i un projecte cultural global en llengua catalana.</p>
       <a href="#projecte" class="hero-cta">Descobreix el projecte</a>
     </div>
@@ -1090,10 +1103,20 @@
       </div>
       <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres aporta una mirada diferent, però compartim la mateixa passió: que la literatura catalana i les veus que impacten tinguin el lloc que mereixen.</p>
       <div class="equip-grid">
-
+        <div class="membre fade-up">
+          <div class="membre-foto m2">
+            <img class="membre-photo" src="foto_equip_1.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
+            <div class="membre-foto-inner">
+              <span class="membre-initials">IG</span>
+            </div>
+          </div>
+          <p class="membre-carrec">Il·lustrador, maquetador i traductor</p>
+          <h3 class="membre-nom">Ivan Godoy López</h3>
+          <p class="membre-bio">Vetlla perquè les paraules s'envoltin d'una estètica que les ajudi a ressonar.</p>
+        </div>
         <div class="membre fade-up">
           <div class="membre-foto m1">
-            <img class="membre-photo" src="foto_equip_1.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
+            <img class="membre-photo" src="foto_equip_2.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
             <div class="membre-foto-inner">
               <span class="membre-initials">AG</span>
             </div>
@@ -1104,8 +1127,8 @@
         </div>
 
         <div class="membre fade-up">
-          <div class="membre-foto m2">
-            <img class="membre-photo" src="foto_equip_2.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
+          <div class="membre-foto m3">
+            <img class="membre-photo" src="foto_equip_3.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
             <div class="membre-foto-inner">
               <span class="membre-initials">AG</span>
             </div>
@@ -1113,18 +1136,6 @@
           <p class="membre-carrec">Fundadora, editora, maquetadora, escriptora, lingüista i traductora</p>
           <h3 class="membre-nom">Anna Godoy López</h3>
           <p class="membre-bio">S'encarrega de l'edició, la traducció i la correcció dels textos, amb tot el rigor i la qualitat que mereixen els lectors. Connectora de somnis amb realitats.</p>
-        </div>
-
-        <div class="membre fade-up">
-          <div class="membre-foto m3">
-            <img class="membre-photo" src="foto_equip_3.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
-            <div class="membre-foto-inner">
-              <span class="membre-initials">IG</span>
-            </div>
-          </div>
-          <p class="membre-carrec">Il·lustrador, maquetador i traductor</p>
-          <h3 class="membre-nom">Ivan Godoy López</h3>
-          <p class="membre-bio">Vetlla perquè les paraules s'envoltin d'una estètica que les ajudi a ressonar.</p>
         </div>
 
       </div>
