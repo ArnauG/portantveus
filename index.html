@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portantveus | Editorial infantil en català</title>
+  <title>Portantveus | Editorial</title>
   <meta name="description" content="Portantveus és una editorial catalana de contes i àlbums il·lustrats per a infants, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#E15A1D" />
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="logo_portantveus_transparent.png" />
+  <link rel="icon" href="logo_portantveus_registre.png" />
 
   <!-- Structured data: Organization -->
   <script type="application/ld+json">
@@ -41,7 +41,7 @@
     "name": "Portantveus",
     "alternateName": "Portantveus Editorial",
     "url": "https://portantveus.cat/",
-    "logo": "https://portantveus.cat/logo_portantveus_transparent.png",
+    "logo": "https://portantveus.cat/logo_portantveus_registre.png",
     "image": "https://portantveus.cat/og-image.png",
     "description": "Editorial catalana de contes i àlbums il·lustrats per a infants.",
     "email": "hola@portantveus.cat",
@@ -88,20 +88,7 @@
         "position": 3,
         "item": {
           "@type": "Book",
-          "name": "Pi, Pa, Pipa! Començo a llegir de mica en mica!",
-          "author": { "@type": "Person", "name": "Anna Godoy López" },
-          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
-          "isbn": "9788409711468",
-          "inLanguage": "ca",
-          "publisher": { "@type": "Organization", "name": "Portantveus" }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "Book",
-          "name": "El Ratolí Olí",
+          "name": "El ratolí Olí",
           "author": { "@type": "Person", "name": "Anna Godoy López" },
           "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
           "isbn": "9788409197064",
@@ -111,13 +98,26 @@
       },
       {
         "@type": "ListItem",
-        "position": 5,
+        "position": 4,
         "item": {
           "@type": "Book",
-          "name": "El Xup-xup de l'Aris",
+          "name": "El xup-xup de l'Aris",
           "author": { "@type": "Person", "name": "Anna Godoy López" },
           "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
           "isbn": "9788409604814",
+          "inLanguage": "ca",
+          "publisher": { "@type": "Organization", "name": "Portantveus" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Book",
+          "name": "Pi, Pa, Pipa! Començo a llegir de mica en mica!",
+          "author": { "@type": "Person", "name": "Anna Godoy López" },
+          "illustrator": { "@type": "Person", "name": "Ivan Godoy López" },
+          "isbn": "9788409711468",
           "inLanguage": "ca",
           "publisher": { "@type": "Organization", "name": "Portantveus" }
         }
@@ -490,6 +490,23 @@
       justify-content: center;
     }
 
+    .llibre-cover:has(.cover-photo) { aspect-ratio: 4/3; }
+
+    .cover-photo ~ .llibre-cover-inner,
+    .cover-photo ~ .cover-ornament { display: none; }
+
+    .cover-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .llibre-card:hover .cover-photo { transform: scale(1.04); }
+
     .llibre-cover.cover-1 { background: linear-gradient(135deg, #E15A1D 0%, #D9432A 100%); }
     .llibre-cover.cover-2 { background: linear-gradient(135deg, #F0821F 0%, #E15A1D 100%); }
     .llibre-cover.cover-3 { background: linear-gradient(135deg, #F5BE60 0%, #F0821F 100%); }
@@ -671,6 +688,17 @@
     .membre-foto.m2 { background: linear-gradient(160deg, #F0821F, #E15A1D); }
     .membre-foto.m3 { background: linear-gradient(160deg, #F5BE60, #F0821F); }
 
+    .membre-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .membre-photo ~ .membre-foto-inner { display: none; }
+
     .membre-initials {
       font-family: 'Poppins', sans-serif;
       font-size: 3.5rem;
@@ -835,11 +863,11 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#inici" class="nav-logo"><img src="logo_portantveus_transparent.png" alt="Portantveus Editorial" width="114" height="42" /></a>
+    <a href="#inici" class="nav-logo"><img src="logo_portantveus_registre.png" alt="Portantveus Editorial" width="170" height="42" /></a>
     <ul class="nav-links">
-      <li><a href="#projecte">El Projecte</a></li>
+      <li><a href="#projecte">El projecte</a></li>
       <li><a href="#projectes">Publicacions</a></li>
-      <li><a href="#equip">L'Equip</a></li>
+      <li><a href="#equip">L'equip</a></li>
       <li><a href="#contacte">Contacte</a></li>
     </ul>
   </nav>
@@ -849,17 +877,17 @@
     <div class="hero-left">
       <div class="hero-number">I</div>
       <div class="hero-eyebrow">
-        <span class="label">Editorial Independent · Català</span>
+        <span class="label">Editorial independent · Català</span>
       </div>
-      <h1 class="hero-title">Portant<em>veus</em></h1>
-      <p class="hero-subtitle">Donem veu a les paraules que mereixen ser escoltades. Un projecte editorial arrelat a la cultura i la llengua catalanes.</p>
+      <h1 class="hero-title">Portant<em>Veus</em></h1>
+      <p class="hero-subtitle">Portem les veus que mereixen ser escoltades, acompanyem paraules que ens apel·len i ens impacten. Un projecte editorial i un projecte cultural global en llengua catalana.</p>
       <a href="#projecte" class="hero-cta">Descobreix el projecte</a>
     </div>
     <div class="hero-right">
       <div class="hero-quote">
         <span class="hero-quote-mark">"</span>
-        <p>Les paraules no moren quan s'escriuen. Neixen de nou cada vegada que algú les llegeix.</p>
-        <footer>Lema editorial</footer>
+        <p>Fem de la teva veu un llibre. Fem del teu llibre la nostra veu.</p>
+        <footer>PortantVeus</footer>
       </div>
     </div>
   </section>
@@ -871,32 +899,32 @@
         <span class="section-number">01</span>
         <div>
           <span class="label">Qui som</span>
-          <h2>El Projecte Editorial</h2>
+          <h2>El projecte editorial</h2>
         </div>
       </div>
       <div class="projecte-grid">
         <div class="projecte-text fade-up">
           <p>Portantveus és una editorial independent nascuda de la convicció que la literatura en català ha de tenir espais propis, valents i rigorosos.</p>
-          <p>Fundada per un col·lectiu d'editors, escriptors i lectors apassionats, Portantveus neix amb el compromís de publicar obres que interpel·len, que transformen i que queden. No cerquem la literatura còmoda ni l'èxit fàcil: cerquem les veus que diuen allò que d'altres no s'atreveixen a dir.</p>
-          <p>El nostre catàleg abraça el conte infantil, l'àlbum il·lustrat i les primeres lectures. Treballem amb la cura que mereix cada etapa de la infància, sempre amb el mateix criteri: la qualitat literària, visual i pedagògica de cada història.</p>
-          <p>Portantveus és també un projecte cultural. Organitzem presentacions, clubs de lectura i trobades que fan de la literatura un espai de diàleg i comunitat. Perquè un llibre no acaba quan es tanca: comença quan s'obre.</p>
+          <p>Fundada per un col·lectiu de comunicadors apassionats, experts en els àmbits de l'edició, l'escriptura, l'audiovisual, la fotografia i la llengua, Portantveus neix amb el compromís de publicar obres que interpel·len, que transformen i que queden. No cerquem la literatura còmoda ni l'èxit fàcil: cerquem veus que marquen, i n'amplifiquem la ressonància cultural a través d'altres manifestacions artístiques vinculades al producte literari.</p>
+          <p>El nostre catàleg abraça la novel·la de tots els gèneres, i també el conte infantil, l'àlbum il·lustrat i les primeres lectures. Treballem sempre amb el mateix criteri: la qualitat literària, visual i humana de cada proposta.</p>
+          <p>Portantveus és un projecte global, no s'atura en els llibres, sinó que cerca emmarcar-los en un context cultural ampli: organitzem presentacions, clubs de lectura, concerts, representacions escèniques i trobades que converteixen la literatura un espai de diàleg i comunitat. Perquè un llibre de Portantveus no acaba quan es tanca: les veus que porten ens ressonen sempre a dins.</p>
         </div>
         <div class="projecte-valors fade-up">
           <div class="valor">
             <h3>Llengua i identitat</h3>
-            <p>La llengua catalana és el nostre vehicle i el nostre compromís. Publiquem en català perquè creiem en la seva vitalitat i en la seva capacitat de dir-ho tot.</p>
+            <p>La llengua catalana és el nostre vehicle i el nostre compromís. Publiquem en català perquè la nostra llengua materna connecta i ens connecta.</p>
           </div>
           <div class="valor">
             <h3>Rigor editorial</h3>
-            <p>Cada text que publiquem ha passat per un procés de lectura, debat i cura que garanteix la qualitat literària i la coherència del nostre catàleg.</p>
+            <p>Cada text que publiquem ha passat per un procés de lectura, debat i revisió que en garanteix la qualitat literària i la rellevància.</p>
           </div>
           <div class="valor">
             <h3>Proximitat i comunitat</h3>
-            <p>Som una editorial de proximitat. Els nostres autors i lectors no són clients ni productes: són membres d'una comunitat lectora que creixem junts.</p>
+            <p>Som una editorial de proximitat. Els nostres autors i lectors no són clients ni productes: tots som membres d'una comunitat lectora que creixem junts.</p>
           </div>
           <div class="valor">
-            <h3>Independència total</h3>
-            <p>No depenem de grans grups ni d'interessos externs. La nostra independència és la nostra fortalesa i la garantia de la nostra llibertat editorial.</p>
+            <h3>Independència</h3>
+            <p>No depenem de grans grups ni d'interessos externs. La nostra independència és la nostra fortalesa i la garantia de la nostra llibertat editorial. Estimem el que oferim i hi creiem des de la transparència.</p>
           </div>
         </div>
       </div>
@@ -910,15 +938,16 @@
         <span class="section-number">02</span>
         <div>
           <span class="label">Publicacions</span>
-          <h2>El Nostre Catàleg</h2>
+          <h2>El nostre catàleg</h2>
         </div>
       </div>
-      <p class="equip-intro fade-up">Contes i àlbums il·lustrats per als lectors i les lectores més menudes de la casa, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López.</p>
+      <p class="equip-intro fade-up">Contes i àlbums il·lustrats per als lectors i les lectores més menuts de la casa, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López.</p>
       <div class="llibres-grid">
 
         <!-- Llibre 1 -->
         <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-1">
+          <div class="llibre-cover cover-1 has-photo">
+            <img class="cover-photo" src="foto_aran.JPG" alt="Un infant llegint «L'Aran i les paraules màgiques»" loading="lazy" onerror="this.remove()" />
             <div class="cover-ornament"></div>
             <div class="llibre-cover-inner">
               <div class="cover-lines"></div>
@@ -928,12 +957,12 @@
             </div>
           </div>
           <div class="llibre-info">
-            <span class="llibre-tag">Conte infantil</span>
+            <span class="llibre-tag">Conte juvenil</span>
             <h3 class="llibre-titol">L'Aran i les paraules màgiques</h3>
             <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
             <div class="divider-line"></div>
             <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">L'Aran sempre ha sentit dir que les paraules tenen molta força, però no ha vist mai que un mot hagi fet un blau a algú ni que el turó de darrere l'escola es bellugui de lloc. A poc a poc, però, anirà descobrint que les paraules són capaces de coses molt més importants: de fer plorar, de fer riure, de fer canviar la manera de veure el món i, sobretot, de fer feliços els invisibles amb una cosa que tots tenim i que tots podem donar. Continuació de <em>L'Aran i els regals màgics</em>.</p>
+            <p class="sinopsis-text">L'Aran sempre ha sentit dir que les paraules tenen molta força, però no ha vist mai que un mot hagi fet un blau a algú ni que el turó de darrere l'escola es bellugui de lloc. A poc a poc, però, anirà descobrint que les paraules són capaces de coses molt més importants: de fer plorar, de fer riure, de fer canviar la manera de veure el món i, sobretot, de fer feliços els invisibles amb una cosa que tots tenim i que tots podem donar. L'Aran observa el món amb una mirada senzilla, transparent i honesta, i aquesta vegada ho fa envoltat de paraules i de la gent oblidada de la nostra societat. Hi ha històries que, per molt petites que semblin, no són tan sols coses de nens. <em>L'Aran i els regals màgics</em>.</p>
             <div class="status-badge">
               <span class="status-dot"></span>
               Publicat · ISBN 978-84-09-00388-4
@@ -943,22 +972,23 @@
 
         <!-- Llibre 2 -->
         <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-2">
+          <div class="llibre-cover cover-2 has-photo">
+            <img class="cover-photo" src="foto_onada.JPG" alt="Un infant llegint «L'onada de contes»" loading="lazy" onerror="this.remove()" />
             <div class="cover-ornament"></div>
             <div class="llibre-cover-inner">
               <div class="cover-lines"></div>
-              <p class="cover-title">L'Onada de Contes</p>
+              <p class="cover-title">L'onada de contes</p>
               <div class="cover-lines"></div>
               <p class="cover-author">Anna Godoy López</p>
             </div>
           </div>
           <div class="llibre-info">
-            <span class="llibre-tag">Recull de contes</span>
-            <h3 class="llibre-titol">L'Onada de Contes</h3>
+            <span class="llibre-tag">Conte infantil</span>
+            <h3 class="llibre-titol">L'onada de contes</h3>
             <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
             <div class="divider-line"></div>
             <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">Un recull de contes que viatgen per mirades i móns ben diferents. Entre ells, la història de l'Arata i el Kanaye, dos nens japonesos que viuen al mateix carrer, van a la mateixa escola i fins i tot a la mateixa classe, però viuen realitats molt diferents: quan una onada gegant està a punt de destruir el seu poble, hauran de decidir quines coses importants volen salvar de l'aigua.</p>
+            <p class="sinopsis-text">L'Arata i el Kanaye són dos nens japonesos que viuen al mateix carrer, van a la mateixa escola i fins i tot a la mateixa classe, però viuen realitats molt diferents... Quan una onada gegant està a punt de destruir el seu poble, han de decidir quines coses importants volen salvar de l'aigua.</p>
             <div class="status-badge">
               <span class="status-dot"></span>
               Publicat · ISBN 978-84-09-50478-7
@@ -966,49 +996,25 @@
           </div>
         </article>
 
-        <!-- Llibre 3 -->
-        <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-3">
-            <div class="cover-ornament"></div>
-            <div class="llibre-cover-inner">
-              <div class="cover-lines"></div>
-              <p class="cover-title">Pi, Pa, Pipa!</p>
-              <div class="cover-lines"></div>
-              <p class="cover-author">Anna Godoy López</p>
-            </div>
-          </div>
-          <div class="llibre-info">
-            <span class="llibre-tag">Primeres lectures</span>
-            <h3 class="llibre-titol">Pi, Pa, Pipa!</h3>
-            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
-            <div class="divider-line"></div>
-            <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text"><em>Començo a llegir de mica en mica!</em> Un llibre per acompanyar els infants en els primers anys de descoberta del món, ple de colors, formes, animals, objectes, números... i lletres! Perquè les lletres obren la porta a una altra dimensió infinita d'històries, d'aventures i de coneixements, <em>Pi, Pa, Pipa!</em> acompanya els petits i les petites de la casa en l'aventura d'aprendre a llegir i de conèixer l'univers que els envolta.</p>
-            <div class="status-badge">
-              <span class="status-dot"></span>
-              Publicat · ISBN 978-84-09-71146-8
-            </div>
-          </div>
-        </article>
-
         <!-- Llibre 4 -->
         <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-4">
+          <div class="llibre-cover cover-4 has-photo">
+            <img class="cover-photo" src="foto_ratoli.JPG" alt="Un infant llegint «El ratolí Olí»" loading="lazy" onerror="this.remove()" />
             <div class="cover-ornament"></div>
             <div class="llibre-cover-inner">
               <div class="cover-lines"></div>
-              <p class="cover-title">El Ratolí Olí</p>
+              <p class="cover-title">El ratolí Olí</p>
               <div class="cover-lines"></div>
               <p class="cover-author">Anna Godoy López</p>
             </div>
           </div>
           <div class="llibre-info">
             <span class="llibre-tag">Conte infantil</span>
-            <h3 class="llibre-titol">El Ratolí Olí</h3>
+            <h3 class="llibre-titol">El ratolí Olí</h3>
             <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
             <div class="divider-line"></div>
             <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">El ratolí Olí és un ratolí com tots els altres: té una cua ben llarga, uns bigotis estirats i uns ullets petitons. Fa amistats a tot arreu, li agrada viatjar, fer gresca i xerinola, i participa a totes, totes, totes les festes populars. Tot canvia, però, quan arriba el Dia del Formatge, i és que tothom es queda ben parat quan descobreix que el pastís de pastanaga, i no pas el formatge, és el primer de la llista dels seus menjars favorits... Això vol dir que l'Olí no és un ratolí de debò? S'atrevirà a lluitar pel pastís de pastanaga?</p>
+            <p class="sinopsis-text">El ratolí Olí és un ratolí com tots els altres: té una cua ben llarga, uns bigotis estirats i uns ullets petitons. Fa amistats a tot arreu, li agrada viatjar, fer gresca i xerinola, i participa a totes, totes, totes les festes populars. Tot canvia, però, quan arriba el Dia del Formatge, i és que tothom es queda ben parat quan explica que el pastís de pastanaga, i no pas el formatge, és el primer de la llista dels seus menjars favorits... Això vol dir que l'Olí no és un ratolí de debò? S'atrevirà a lluitar pel pastís de pastanaga?</p>
             <div class="status-badge">
               <span class="status-dot"></span>
               Publicat · ISBN 978-84-09-19706-4
@@ -1018,25 +1024,52 @@
 
         <!-- Llibre 5 -->
         <article class="llibre-card fade-up">
-          <div class="llibre-cover cover-5">
+          <div class="llibre-cover cover-5 has-photo">
+            <img class="cover-photo" src="foto_xupxup.JPG" alt="Un infant llegint «El xup-xup de l'Aris»" loading="lazy" onerror="this.remove()" />
             <div class="cover-ornament"></div>
             <div class="llibre-cover-inner">
               <div class="cover-lines"></div>
-              <p class="cover-title">El Xup-xup de l'Aris</p>
+              <p class="cover-title">El xup-xup de l'Aris. Com es cuina un germanet</p>
               <div class="cover-lines"></div>
               <p class="cover-author">Anna Godoy López</p>
             </div>
           </div>
           <div class="llibre-info">
             <span class="llibre-tag">Conte infantil</span>
-            <h3 class="llibre-titol">El Xup-xup de l'Aris</h3>
+            <h3 class="llibre-titol">El xup-xup de l'Aris. Com es cuina un germanet</h3>
             <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
             <div class="divider-line"></div>
             <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text"><em>Com es cuina un germanet.</em> Aviat tindreu un germanet o una germaneta? De què estan fets els petitons i les petitones de la llar? Existeix una recepta per fer bebès? Cal que hi afegim sucre? Val més utilitzar el forn, el microones o la panificadora? Viu amb l'Aran l'aventura de cuinar un germanet, fins que l'Aris arriba fent xup-xup per equilibrar la balança i desendreçar tot el nostre món de la manera més bonica. Benvingut, Aris!</p>
+            <p class="sinopsis-text"</em> Aviat tindreu un germanet o una germaneta? Potser fa poc que ha arribat a casa un nou infant? De què estan fets els petitons i les petitones de la llar? Quins són els millors ingredients per fer un nadó? Existeix una recepta per fer bebès? Cal que hi afegim sucre? Val més utilitzar el forn, el microones o la panificadora? Viu amb l'Aran l'aventura de cuinar un germanet! L'Aris va fent xup-xup i arriba per equilibrar la balança i... per desendreçar tot el nostre món de la manera més bonica. Benvingut, Aris!</p>
             <div class="status-badge">
               <span class="status-dot"></span>
               Publicat · ISBN 978-84-09-60481-4
+            </div>
+          </div>
+        </article>
+
+        <!-- Llibre 6 -->
+        <article class="llibre-card fade-up">
+          <div class="llibre-cover cover-3 has-photo">
+            <img class="cover-photo" src="foto_pipa.JPG" alt="Un infant llegint «Pi, pa, pipa!»" loading="lazy" onerror="this.remove()" />
+            <div class="cover-ornament"></div>
+            <div class="llibre-cover-inner">
+              <div class="cover-lines"></div>
+              <p class="cover-title">Pi, pa, pipa! Començo a llegir de mica en mica</p>
+              <div class="cover-lines"></div>
+              <p class="cover-author">Anna Godoy López</p>
+            </div>
+          </div>
+          <div class="llibre-info">
+            <span class="llibre-tag">Primeres lectures</span>
+            <h3 class="llibre-titol">Pi, pa, pipa! Començo a llegir de mica en mica</h3>
+            <p class="llibre-autor">Anna Godoy López · Il·lustracions: Ivan Godoy López</p>
+            <div class="divider-line"></div>
+            <p class="bio-label">Sinopsi</p>
+            <p class="sinopsis-text"></em> Un llibre per acompanyar els infants en els primers anys de descoberta del món, ple de colors, formes, animals, objectes, números... i lletres! Les lletres ens obren la porta a una altra dimensió (infinita!) d'històries, d'aventures i de coneixements. L'objectiu de <em>Pi, Pa, Pipa!</em> és acompanyar els petits i les petites de la casa en l'aventura d'aprendre a llegir i en la de conèixer l'univers que ens envolta. Que comenci la música dels sons de les vocals i les consonants, per teixi, a poc a poc, el bonic camí de la lectura.</p>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Publicat · ISBN 978-84-09-71146-8
             </div>
           </div>
         </article>
@@ -1052,43 +1085,46 @@
         <span class="section-number">03</span>
         <div>
           <span class="label">Les persones</span>
-          <h2>El Grup Editorial</h2>
+          <h2>El grup editorial</h2>
         </div>
       </div>
-      <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres porta una mirada diferent, però compartim la mateixa passió: que la literatura catalana tingui el lloc que mereix.</p>
+      <p class="equip-intro fade-up">Som un equip petit i convençut. Cadascú de nosaltres aporta una mirada diferent, però compartim la mateixa passió: que la literatura catalana i les veus que impacten tinguin el lloc que mereixen.</p>
       <div class="equip-grid">
 
         <div class="membre fade-up">
           <div class="membre-foto m1">
+            <img class="membre-photo" src="foto_equip_1.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
             <div class="membre-foto-inner">
               <span class="membre-initials">AG</span>
             </div>
           </div>
-          <p class="membre-carrec">Cofundador</p>
+          <p class="membre-carrec">Cofundador i programador</p>
           <h3 class="membre-nom">Arnau Güell Soler</h3>
-          <p class="membre-bio">Cofundador de Portantveus. Impulsa el projecte editorial des dels seus inicis, vetllant perquè cada publicació respongui a la visió i als valors de l'editorial.</p>
+          <p class="membre-bio">Impulsa el projecte editorial des dels seus inicis, vetlla perquè cada publicació respongui a la visió i als valors de l'editorial, i tradueix les propostes creatives a llenguatge binari perquè arribin arreu.</p>
         </div>
 
         <div class="membre fade-up">
           <div class="membre-foto m2">
+            <img class="membre-photo" src="foto_equip_2.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
             <div class="membre-foto-inner">
               <span class="membre-initials">AG</span>
             </div>
           </div>
-          <p class="membre-carrec">Editora, Traductora i Correctora</p>
+          <p class="membre-carrec">Fundadora, editora, maquetadora, escriptora, lingüista i traductora</p>
           <h3 class="membre-nom">Anna Godoy López</h3>
-          <p class="membre-bio">S'encarrega de l'edició, la traducció i la correcció dels textos, tenint cura de cada obra perquè arribi als lectors amb tot el rigor i la qualitat que mereix.</p>
+          <p class="membre-bio">S'encarrega de l'edició, la traducció i la correcció dels textos, amb tot el rigor i la qualitat que mereixen els lectors. Connectora de somnis amb realitats.</p>
         </div>
 
         <div class="membre fade-up">
           <div class="membre-foto m3">
+            <img class="membre-photo" src="foto_equip_3.jpg" alt="L'equip de Portantveus" loading="lazy" onerror="this.remove()" />
             <div class="membre-foto-inner">
               <span class="membre-initials">IG</span>
             </div>
           </div>
-          <p class="membre-carrec">Traductor i Il·lustrador</p>
+          <p class="membre-carrec">Il·lustrador, maquetador i traductor</p>
           <h3 class="membre-nom">Ivan Godoy López</h3>
-          <p class="membre-bio">Combina la traducció amb la il·lustració, aportant al catàleg de Portantveus tant el rigor lingüístic com una mirada visual pròpia.</p>
+          <p class="membre-bio">Vetlla perquè les paraules s'envoltin d'una estètica que les ajudi a ressonar.</p>
         </div>
 
       </div>
@@ -1102,13 +1138,13 @@
         <div class="fade-up">
           <span class="label">Escriu-nos</span>
           <h2 class="contacte-title">Parlem?</h2>
-          <p class="contacte-text">Estem oberts a rebre originals, propostes de col·laboració i qualsevol iniciativa que comparteixi els nostres valors. Si tens un projecte literari i creus que Portantveus és el teu lloc, t'estàvem esperant.</p>
+          <p class="contacte-text">Estem oberts a rebre originals, propostes de col·laboració i qualsevol iniciativa que comparteixi els nostres valors. Si tens un projecte literari i creus que Portantveus és el teu lloc, t'estem esperant!</p>
           <a href="mailto:hola@portantveus.cat" class="contacte-email">hola@portantveus.cat</a>
         </div>
         <div class="contacte-dades fade-up">
           <div class="dada">
             <h4>Adreça</h4>
-            <p>Carrer de les Lletres, 12<br>08001 Barcelona</p>
+            <p><br>08737 Torrelles de Foix</p>
           </div>
           <div class="dada">
             <h4>Originals i propostes</h4>
@@ -1125,7 +1161,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-logo"><img src="logo_portantveus_transparent.png" alt="Portantveus" width="65" height="24" /></span>
+        <span class="footer-logo"><img src="logo_portantveus_registre.png" alt="Portantveus" width="97" height="24" /></span>
         <span class="footer-copy">© 2026 Portantveus · Tots els drets reservats · Editorial independent en llengua catalana</span>
       </div>
     </div>
