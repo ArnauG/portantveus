@@ -1,5 +1,5 @@
 {
-  "_instruccions": "Font única de dades. Després d'editar, executa: python3 tools/generar.py. Els camps buits no es mostren ni s'afegeixen a l'schema. on_comprar: llista de {\"nom\":..., \"url\":...}. format: 'Tapa dura' | 'Tapa tova' | 'Rústica'... data_publicacio: AAAA-MM-DD o AAAA.",
+  "_instruccions": "Font única de dades. Després d'editar, executa: python3 tools/generar.py. Els camps buits no es mostren ni s'afegeixen a l'schema. on_comprar: llista de {\"nom\":..., \"url\":...}. format: 'Tapa dura' | 'Tapa tova' | 'Rústica'... data_publicacio: AAAA-MM-DD o AAAA. seccio: clau d'una entrada de 'seccions' (el catàleg de la portada s'agrupa per seccions). il_lustrador, isbn i foto d'autor són opcionals. estat: 'publicat' (per defecte) o 'properament'. equip: true si l'autor forma part de l'equip editorial (surt a l'Organization i a la secció L'equip).",
   "editorial": {
     "nom": "Portantveus",
     "url": "https://portantveus.cat",
@@ -20,7 +20,8 @@
       "rol_schema": "Escriptora i editora",
       "foto": "equip-3",
       "bio": "S'encarrega de l'edició, la traducció i la correcció dels textos de Portantveus, amb tot el rigor i la qualitat que mereixen els lectors. Connectora de somnis amb realitats. És l'autora de tots els contes i àlbums il·lustrats del catàleg.",
-      "xarxes": []
+      "xarxes": [],
+      "equip": true
     },
     {
       "slug": "ivan-godoy-lopez",
@@ -29,6 +30,21 @@
       "rol_schema": "Il·lustrador",
       "foto": "equip-1",
       "bio": "Vetlla perquè les paraules s'envoltin d'una estètica que les ajudi a ressonar. És l'il·lustrador de tots els contes i àlbums il·lustrats del catàleg de Portantveus.",
+      "xarxes": [],
+      "equip": true
+    },
+    {
+      "slug": "teresa-juve",
+      "nom": "Teresa Juvé",
+      "carrec": "Escriptora i pedagoga",
+      "rol_schema": "Escriptora",
+      "foto": "",
+      "inicials": "TJ",
+      "equip": false,
+      "naixement": "1921-02-07",
+      "lloc_naixement": "Madrid",
+      "defuncio": "2025-03-18",
+      "bio": "Teresa Juvé i Acero (Madrid, 1921 – 2025) va ser escriptora, pedagoga i professora. Filla de pare català, es va formar a Madrid i a l'Institut-Escola Ausiàs March de Barcelona. En acabar la Guerra Civil es va exiliar a França amb la família: a Tolosa va estudiar Filologia i Literatura Comparada i, durant la Segona Guerra Mundial, va ser agent d'enllaç de la Resistència francesa. Especialista en literatura occitana dels segles XVI i XVII, va dedicar la tesi al poeta Pèire Godolin.\n\nEl 1948 es va casar amb el polític i pedagog Josep Pallach, amb qui va fer de professora a França fins que van tornar a Catalunya el 1970, on va continuar dedicada a la docència.\n\nLa seva primera novel·la, <em>La charca en la ciudad</em>, va ser finalista del Premi Nadal el 1963, però no es va publicar fins al 2005, en català, amb el títol <em>L'aiguamort a la ciutat</em>. És coneguda sobretot per la sèrie de novel·les històriques i policíaques protagonitzades per Jaume Plagumà, portantveus del rei a la Catalunya de finals del segle XVI, que va començar amb <em>El portantveus s'ha equivocat</em> (1997) i que inclou títols com <em>Juguesca mortal</em> (2002), <em>La trampa</em> (2014), <em>L'arbre trencat</em> (2019) o <em>El degollador de Vallvidrera</em> (2021). També va escriure l'obra autobiogràfica <em>Tu ets jo. Flaixos per al meu blog</em> (2015).\n\nVa rebre la Creu de Sant Jordi (2010) i el Premi Memorial Francesc Macià (2018), i el 2021 la Generalitat va commemorar el centenari del seu naixement. Va ser presidenta d'honor de la Fundació Josep Pallach i sòcia d'honor de l'Associació d'Escriptors en Llengua Catalana. Va morir el març del 2025, als 104 anys.",
       "xarxes": []
     }
   ],
@@ -49,7 +65,8 @@
       "pagines": null,
       "edat_min": null,
       "edat_max": null,
-      "on_comprar": []
+      "on_comprar": [],
+      "seccio": "infants-i-joves"
     },
     {
       "slug": "onada-de-contes",
@@ -67,7 +84,8 @@
       "pagines": null,
       "edat_min": null,
       "edat_max": null,
-      "on_comprar": []
+      "on_comprar": [],
+      "seccio": "infants-i-joves"
     },
     {
       "slug": "el-ratoli-oli",
@@ -85,7 +103,8 @@
       "pagines": null,
       "edat_min": null,
       "edat_max": null,
-      "on_comprar": []
+      "on_comprar": [],
+      "seccio": "infants-i-joves"
     },
     {
       "slug": "el-xup-xup-de-laris",
@@ -103,7 +122,8 @@
       "pagines": null,
       "edat_min": null,
       "edat_max": null,
-      "on_comprar": []
+      "on_comprar": [],
+      "seccio": "infants-i-joves"
     },
     {
       "slug": "pi-pa-pipa",
@@ -121,7 +141,40 @@
       "pagines": null,
       "edat_min": null,
       "edat_max": null,
+      "on_comprar": [],
+      "seccio": "infants-i-joves"
+    },
+    {
+      "slug": "sota-la-pluja-un-mort-i-mig",
+      "titol": "Sota la pluja, un mort i mig",
+      "genere": "Novel·la",
+      "seccio": "novella",
+      "estat": "properament",
+      "isbn": "",
+      "foto": "sotalapluja",
+      "alt": "Il·lustració de «Sota la pluja, un mort i mig»: un personatge amb un gran abric que s'amaga la cara darrere d'un rètol en blanc i sosté un llapis gegant",
+      "sinopsi": "Una novel·la de Teresa Juvé, l'autora de la sèrie del portantveus Jaume Plagumà, que inaugura la col·lecció de novel·la de Portantveus. Molt aviat en podreu llegir aquí la sinopsi completa.",
+      "autor": "teresa-juve",
+      "il_lustrador": "",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
       "on_comprar": []
+    }
+  ],
+  "seccions": [
+    {
+      "slug": "infants-i-joves",
+      "nom": "Infants i joves",
+      "intro": "Contes, àlbums il·lustrats i primeres lectures per als lectors i les lectores més menuts de la casa, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López."
+    },
+    {
+      "slug": "novella",
+      "nom": "Novel·la",
+      "intro": "Novel·la per a lectors adults: veus d'autors catalans que ens interpel·len i que es queden amb nosaltres un cop tanquem el llibre."
     }
   ]
 }

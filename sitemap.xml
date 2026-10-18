@@ -31,12 +31,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://portantveus.cat/llibres/sota-la-pluja-un-mort-i-mig/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://portantveus.cat/autors/anna-godoy-lopez/</loc>
     <lastmod>2026-10-18</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://portantveus.cat/autors/ivan-godoy-lopez/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://portantveus.cat/autors/teresa-juve/</loc>
     <lastmod>2026-10-18</lastmod>
     <priority>0.6</priority>
   </url>

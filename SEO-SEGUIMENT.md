@@ -19,7 +19,7 @@ Llegenda: ✅ fet · 🟡 parcial / falta una dada · ⬜ pendent · 👤 depèn
 
 ### ✅ 1.1 Una pàgina per llibre
 - Noves URL: `/llibres/aran-i-les-paraules-magiques/`, `/llibres/onada-de-contes/`, `/llibres/el-ratoli-oli/`, `/llibres/el-xup-xup-de-laris/`, `/llibres/pi-pa-pipa/`.
-- Cada pàgina té: títol i descripció propis, canonical, OG/Twitter amb imatge pròpia 1200×630 (`img/og-*.jpg`), H1 amb el títol, sinopsi, fitxa tècnica, autoria enllaçada, bloc "On el pots trobar", enllaços als altres llibres i molles de pa.
+- Cada pàgina té: títol i descripció propis, canonical, OG/Twitter amb imatge pròpia 1200×630 (`img/og-*.jpg`), H1 amb el títol, sinopsi, fitxa tècnica, autoria enllaçada, bloc "On el pots trobar:", enllaços als altres llibres i molles de pa.
 - Schema: `Book` complet + `BreadcrumbList`.
 - Les targetes de la portada enllacen a cada fitxa (títol + "Fitxa del llibre i on trobar-lo →") i el peu de la portada llista tot el catàleg.
 - `sitemap.xml` ara té 8 URL (portada + 5 llibres + 2 autors).

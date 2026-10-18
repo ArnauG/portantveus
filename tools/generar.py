@@ -16,6 +16,7 @@ D = json.loads((ARREL / "_dades/llibres.json").read_text(encoding="utf-8"))
 ED = D["editorial"]
 BASE = ED["url"].rstrip("/")
 AUTORS = {a["slug"]: a for a in D["autors"]}
+SECCIONS = {x["slug"]: x for x in D.get("seccions", [])}
 AVUI = datetime.date.today().isoformat()
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com" />\n'
          '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n'
@@ -53,7 +54,7 @@ def org_schema():
         "url": f"{BASE}/",
         "logo": f"{BASE}/img/logo-portantveus.png",
         "image": f"{BASE}/og-image.png",
-        "description": "Editorial independent en català de contes, àlbums il·lustrats i primeres lectures per a infants i joves.",
+        "description": "Editorial independent de contes, àlbums il·lustrats, novel·les i primeres lectures per a infants i joves d'autors catalans.",
         "email": ED["email"],
         "address": {"@type": "PostalAddress", "postalCode": a["codi_postal"],
                     "addressLocality": a["localitat"], "addressRegion": a["regio"],
@@ -62,7 +63,7 @@ def org_schema():
         "knowsLanguage": "ca",
         "founder": [{"@id": f"{BASE}/autors/anna-godoy-lopez/#persona"},
                     {"@type": "Person", "name": "Arnau Güell Soler"}],
-        "member": [{"@id": f"{BASE}/autors/{s}/#persona"} for s in AUTORS],
+        "member": [{"@id": f"{BASE}/autors/{s}/#persona"} for s, a in AUTORS.items() if a.get("equip", True)],
     }
     if ED.get("xarxes"):
         o["sameAs"] = ED["xarxes"]
@@ -76,10 +77,12 @@ def persona_ref(slug):
 def llibre_schema(b, complet=True):
     url = f"{BASE}/llibres/{b['slug']}/"
     o = {"@type": "Book", "@id": f"{url}#llibre", "name": b["titol"], "url": url,
-         "isbn": b["isbn"], "inLanguage": "ca", "genre": b["genere"],
+         "inLanguage": "ca", "genre": b["genere"],
          "image": f"{BASE}/img/llibre-{b['foto']}-1400.webp",
-         "author": persona_ref(b["autor"]), "illustrator": persona_ref(b["il_lustrador"]),
+         "author": persona_ref(b["autor"]),
          "publisher": {"@id": f"{BASE}/#organization", "@type": "Organization", "name": ED["nom"]}}
+    if b.get("isbn"): o["isbn"] = b["isbn"]
+    if b.get("il_lustrador"): o["illustrator"] = persona_ref(b["il_lustrador"])
     if complet:
         o["@context"] = "https://schema.org"
         o["description"] = b["descripcio"] or text_pla(b["sinopsi"])
@@ -154,11 +157,14 @@ dl.dades dt{font-family:'Poppins',sans-serif;font-weight:600;font-size:.68rem;le
 .mini small{display:block;font-family:'Poppins',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rust);margin-bottom:.3rem}
 .persona{display:grid;grid-template-columns:320px 1fr;gap:4rem;padding:3rem 0 5rem;align-items:start}
 .persona img{width:100%;height:auto;border-radius:16px;display:block}
+.persona-inicials{aspect-ratio:3/4;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--rust));display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:4.5rem;letter-spacing:.06em;color:rgba(255,255,255,.92)}
+.persona-bio p{margin-bottom:1rem}
+.fitxa-img.paper{background:#FAF9F7;border:1px solid var(--border)}
 footer.peu{background:var(--ink);color:rgba(255,255,255,.65);padding:3rem 0;font-size:.9rem}
 footer.peu .container{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 footer.peu a{color:var(--gold);text-decoration:none}
 footer.peu small{font-family:'Poppins',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.35)}
-@media (max-width:900px){.fitxa,.persona{grid-template-columns:1fr;gap:2rem}.persona img{max-width:320px}}
+@media (max-width:900px){.fitxa,.persona{grid-template-columns:1fr;gap:2rem}.persona img,.persona-inicials{max-width:320px}}
 @media (max-width:600px){nav{padding:1rem 1.5rem}.nav-links{gap:1.1rem}.nav-links a{font-size:.62rem}.container{padding:0 1.25rem}}
 .nav-links a{white-space:nowrap}
 @media (max-width:480px){nav{padding:.8rem 1rem}.nav-links{gap:.9rem}.nav-links a{letter-spacing:.08em}.nav-links li:first-child{display:none}}
@@ -242,15 +248,23 @@ def molles(items):
 
 def generar_llibre(b):
     url = f"{BASE}/llibres/{b['slug']}/"
-    au, il = AUTORS[b["autor"]], AUTORS[b["il_lustrador"]]
-    desc = b["descripcio"] or resum(f"{b['titol']}, de {au['nom']} amb il·lustracions de {il['nom']}. " + b["sinopsi"])
+    au = AUTORS[b["autor"]]
+    il = AUTORS.get(b.get("il_lustrador") or "")
+    sec = SECCIONS.get(b.get("seccio") or "")
+    properament = b.get("estat") == "properament"
+    credit = f"{b['titol']}, de {au['nom']}" + (f" amb il·lustracions de {il['nom']}" if il else "") + ". "
+    desc = b["descripcio"] or resum(credit + b["sinopsi"])
     titol = f"{b['titol']} · {b['genere']} en català | Portantveus"
     if len(titol) > 65:
         titol = f"{b['titol']} | Portantveus"
-    dades = [("ISBN", isbn_guions(b["isbn"])), ("Gènere", e(b["genere"])), ("Idioma", "Català"),
-             ("Text", f'<a href="/autors/{au["slug"]}/">{e(au["nom"])}</a>'),
-             ("Il·lustracions", f'<a href="/autors/{il["slug"]}/">{e(il["nom"])}</a>'),
-             ("Editorial", "Portantveus")]
+    dades = []
+    if b.get("isbn"): dades.append(("ISBN", isbn_guions(b["isbn"])))
+    dades += [("Gènere", e(b["genere"]))]
+    if sec: dades.append(("Col·lecció", e(sec["nom"])))
+    dades += [("Idioma", "Català"), ("Text", f'<a href="/autors/{au["slug"]}/">{e(au["nom"])}</a>')]
+    if il: dades.append(("Il·lustracions", f'<a href="/autors/{il["slug"]}/">{e(il["nom"])}</a>'))
+    dades.append(("Editorial", "Portantveus"))
+    if properament: dades.append(("Estat", "Properament"))
     if b.get("format"): dades.append(("Format", e(b["format"])))
     if b.get("pagines"): dades.append(("Pàgines", str(b["pagines"])))
     mn, mx = b.get("edat_min"), b.get("edat_max")
@@ -260,22 +274,28 @@ def generar_llibre(b):
     dl = "".join(f"<dt>{k}</dt><dd>{v}</dd>" for k, v in dades)
     if b.get("on_comprar"):
         botons = "".join(f'<li><a class="btn" href="{e(x["url"])}" rel="noopener">{e(x["nom"])}</a></li>' for x in b["on_comprar"])
-        comprar = f'<div class="comprar"><strong>On el pots trobar</strong><ul>{botons}</ul></div>'
+        comprar = f'<div class="comprar"><strong>On el pots trobar:</strong><ul>{botons}</ul></div>'
+    elif properament or not b.get("isbn"):
+        assumpte = "Avisa'm: " + b["titol"]
+        comprar = (f'<div class="comprar"><strong>Properament a les llibreries</strong><p>Vols que t\'avisem quan surti? Escriu-nos a '
+                   f'<a href="mailto:{ED["email"]}?subject={e(assumpte)}">{ED["email"]}</a>.</p></div>')
     else:
-        comprar = (f'<div class="comprar"><strong>On el pots trobar</strong><p>Demana\'l a la teva llibreria de confiança '
+        comprar = (f'<div class="comprar"><strong>On el pots trobar:</strong><p>Demana\'l a la teva llibreria de confiança '
                    f'amb l\'ISBN <strong>{isbn_guions(b["isbn"])}</strong>, o escriu-nos a '
                    f'<a href="mailto:{ED["email"]}?subject={e("Comanda: " + b["titol"])}">{ED["email"]}</a> i te l\'enviem.</p></div>')
     altres = "".join(targeta(x) for x in D["llibres"] if x["slug"] != b["slug"])
+    autoria = (f'Text: <a href="/autors/{au["slug"]}/">{e(au["nom"])}</a> · Il·lustracions: <a href="/autors/{il["slug"]}/">{e(il["nom"])}</a>'
+               if il else f'<a href="/autors/{au["slug"]}/">{e(au["nom"])}</a>')
     cos = f"""    <div class="container">
-      {molles([("Inici", "/"), ("Catàleg", "/#projectes"), (b["titol"], None)])}
+      {molles([("Inici", "/"), ("Catàleg", "/#projectes")] + ([(sec["nom"], f"/#{sec['slug']}")] if sec else []) + [(b["titol"], None)])}
       <article class="fitxa">
-        <div class="fitxa-img">
+        <div class="fitxa-img{' paper' if b.get('seccio') == 'novella' else ''}">
           <img src="/img/llibre-{b['foto']}-1400.webp" srcset="/img/llibre-{b['foto']}-800.webp 800w, /img/llibre-{b['foto']}-1400.webp 1400w" sizes="(max-width: 900px) 100vw, 560px" alt="{e(b['alt'])}" width="1400" height="934" fetchpriority="high" />
         </div>
         <div>
           <span class="label">{e(b['genere'])}</span>
           <h1 class="titol">{e(b['titol'])}</h1>
-          <p class="autoria">Text: <a href="/autors/{au['slug']}/">{e(au['nom'])}</a> · Il·lustracions: <a href="/autors/{il['slug']}/">{e(il['nom'])}</a></p>
+          <p class="autoria">{autoria}</p>
           <h2 class="sub">Sinopsi</h2>
           <div class="sinopsi"><p>{b['sinopsi']}</p></div>
           <h2 class="sub">Fitxa tècnica</h2>
@@ -290,7 +310,8 @@ def generar_llibre(b):
         <div class="graella">{altres}</div>
       </div>
     </section>"""
-    schemas = [llibre_schema(b), breadcrumb([("Inici", f"{BASE}/"), ("Catàleg", f"{BASE}/#projectes"), (b["titol"], url)])]
+    molla_sec = [(sec["nom"], f"{BASE}/#{sec['slug']}")] if sec else []
+    schemas = [llibre_schema(b), breadcrumb([("Inici", f"{BASE}/"), ("Catàleg", f"{BASE}/#projectes")] + molla_sec + [(b["titol"], url)])]
     out = ARREL / "llibres" / b["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(pagina(titol, desc, url, f"{BASE}/img/og-{b['foto']}.jpg", b["alt"], cos, schemas, "book"), encoding="utf-8")
@@ -298,24 +319,33 @@ def generar_llibre(b):
 
 def generar_autor(a):
     url = f"{BASE}/autors/{a['slug']}/"
-    propis = [b for b in D["llibres"] if a["slug"] in (b["autor"], b["il_lustrador"])]
+    propis = [b for b in D["llibres"] if a["slug"] in (b["autor"], b.get("il_lustrador"))]
+    equip = a.get("equip", True)
     titol = f"{a['nom']} · {a['rol_schema']} | Portantveus"
-    desc = resum(f"{a['nom']}, {a['carrec'].lower()} a l'editorial Portantveus. " + a["bio"])
+    bio_pla = text_pla(a["bio"])
+    desc = resum((f"{a['nom']}, {a['carrec'].lower()} a l'editorial Portantveus. " if equip else "") + bio_pla)
     person = {"@context": "https://schema.org", "@type": "Person", "@id": f"{url}#persona",
-              "name": a["nom"], "url": url, "jobTitle": a["rol_schema"], "description": a["bio"],
-              "image": f"{BASE}/img/{a['foto']}.webp",
-              "worksFor": {"@id": f"{BASE}/#organization", "@type": "Organization", "name": ED["nom"]},
+              "name": a["nom"], "url": url, "jobTitle": a["rol_schema"], "description": bio_pla,
               "knowsLanguage": "ca"}
+    if a.get("foto"): person["image"] = f"{BASE}/img/{a['foto']}.webp"
+    if equip: person["worksFor"] = {"@id": f"{BASE}/#organization", "@type": "Organization", "name": ED["nom"]}
+    if a.get("naixement"): person["birthDate"] = a["naixement"]
+    if a.get("lloc_naixement"): person["birthPlace"] = {"@type": "Place", "name": a["lloc_naixement"]}
+    if a.get("defuncio"): person["deathDate"] = a["defuncio"]
+    foto = (f'<img src="/img/{a["foto"]}.webp" alt="{e(a["nom"])}" width="600" height="800" fetchpriority="high" />'
+            if a.get("foto") else f'<div class="persona-inicials" aria-hidden="true">{e(a.get("inicials", ""))}</div>')
+    bio_html = "".join(f"<p>{par}</p>" for par in a["bio"].split("\n\n"))
+    molla = ("L'equip", "/#equip") if equip else ("Catàleg", "/#projectes")
     if a.get("xarxes"): person["sameAs"] = a["xarxes"]
     targetes = "".join(targeta(b) for b in propis)
     cos = f"""    <div class="container">
-      {molles([("Inici", "/"), ("L'equip", "/#equip"), (a["nom"], None)])}
+      {molles([("Inici", "/"), molla, (a["nom"], None)])}
       <article class="persona">
-        <img src="/img/{a['foto']}.webp" alt="{e(a['nom'])}" width="600" height="800" fetchpriority="high" />
+        {foto}
         <div>
           <span class="label">{e(a['carrec'])}</span>
           <h1 class="titol">{e(a['nom'])}</h1>
-          <p>{e(a['bio'])}</p>
+          <div class="persona-bio">{bio_html}</div>
         </div>
       </article>
     </div>
@@ -325,7 +355,7 @@ def generar_autor(a):
         <div class="graella">{targetes}</div>
       </div>
     </section>"""
-    schemas = [person, breadcrumb([("Inici", f"{BASE}/"), ("L'equip", f"{BASE}/#equip"), (a["nom"], url)])]
+    schemas = [person, breadcrumb([("Inici", f"{BASE}/"), (molla[0], BASE + molla[1]), (a["nom"], url)])]
     out = ARREL / "autors" / a["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(pagina(titol, desc, url, f"{BASE}/og-image.png", "Portantveus — Editorial en català", cos, schemas, "profile"), encoding="utf-8")
