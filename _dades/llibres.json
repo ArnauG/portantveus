@@ -1,0 +1,127 @@
+{
+  "_instruccions": "Font única de dades. Després d'editar, executa: python3 tools/generar.py. Els camps buits no es mostren ni s'afegeixen a l'schema. on_comprar: llista de {\"nom\":..., \"url\":...}. format: 'Tapa dura' | 'Tapa tova' | 'Rústica'... data_publicacio: AAAA-MM-DD o AAAA.",
+  "editorial": {
+    "nom": "Portantveus",
+    "url": "https://portantveus.cat",
+    "email": "hola@portantveus.cat",
+    "adreca": {
+      "codi_postal": "08737",
+      "localitat": "Torrelles de Foix",
+      "regio": "Barcelona",
+      "pais": "ES"
+    },
+    "xarxes": []
+  },
+  "autors": [
+    {
+      "slug": "anna-godoy-lopez",
+      "nom": "Anna Godoy López",
+      "carrec": "Fundadora, editora, maquetadora, escriptora, lingüista i traductora",
+      "rol_schema": "Escriptora i editora",
+      "foto": "equip-3",
+      "bio": "S'encarrega de l'edició, la traducció i la correcció dels textos de Portantveus, amb tot el rigor i la qualitat que mereixen els lectors. Connectora de somnis amb realitats. És l'autora de tots els contes i àlbums il·lustrats del catàleg.",
+      "xarxes": []
+    },
+    {
+      "slug": "ivan-godoy-lopez",
+      "nom": "Ivan Godoy López",
+      "carrec": "Il·lustrador, maquetador i traductor",
+      "rol_schema": "Il·lustrador",
+      "foto": "equip-1",
+      "bio": "Vetlla perquè les paraules s'envoltin d'una estètica que les ajudi a ressonar. És l'il·lustrador de tots els contes i àlbums il·lustrats del catàleg de Portantveus.",
+      "xarxes": []
+    }
+  ],
+  "llibres": [
+    {
+      "slug": "aran-i-les-paraules-magiques",
+      "titol": "L'Aran i les paraules màgiques",
+      "genere": "Conte juvenil",
+      "isbn": "9788409003884",
+      "foto": "aran",
+      "alt": "Un infant llegint «L'Aran i les paraules màgiques»",
+      "sinopsi": "L'Aran sempre ha sentit dir que les paraules tenen molta força, però no ha vist mai que un mot hagi fet un blau a algú ni que el turó de darrere l'escola es bellugui de lloc. A poc a poc, però, anirà descobrint que les paraules són capaces de coses molt més importants: de fer plorar, de fer riure, de fer canviar la manera de veure el món i, sobretot, de fer feliços els invisibles amb una cosa que tots tenim i que tots podem donar. L'Aran observa el món amb una mirada senzilla, transparent i honesta, i aquesta vegada ho fa envoltat de paraules i de la gent oblidada de la nostra societat. Hi ha històries que, per molt petites que semblin, no són tan sols coses de nens. <em>L'Aran i els regals màgics</em>.",
+      "autor": "anna-godoy-lopez",
+      "il_lustrador": "ivan-godoy-lopez",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
+      "on_comprar": []
+    },
+    {
+      "slug": "onada-de-contes",
+      "titol": "L'onada de contes",
+      "genere": "Conte infantil",
+      "isbn": "9788409504787",
+      "foto": "onada",
+      "alt": "Un infant llegint «L'onada de contes»",
+      "sinopsi": "L'Arata i el Kanaye són dos nens japonesos que viuen al mateix carrer, van a la mateixa escola i fins i tot a la mateixa classe, però viuen realitats molt diferents... Quan una onada gegant està a punt de destruir el seu poble, han de decidir quines coses importants volen salvar de l'aigua.",
+      "autor": "anna-godoy-lopez",
+      "il_lustrador": "ivan-godoy-lopez",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
+      "on_comprar": []
+    },
+    {
+      "slug": "el-ratoli-oli",
+      "titol": "El ratolí Olí",
+      "genere": "Conte infantil",
+      "isbn": "9788409197064",
+      "foto": "ratoli",
+      "alt": "Un infant llegint «El ratolí Olí»",
+      "sinopsi": "El ratolí Olí és un ratolí com tots els altres: té una cua ben llarga, uns bigotis estirats i uns ullets petitons. Fa amistats a tot arreu, li agrada viatjar, fer gresca i xerinola, i participa a totes, totes, totes les festes populars. Tot canvia, però, quan arriba el Dia del Formatge, i és que tothom es queda ben parat quan explica que el pastís de pastanaga, i no pas el formatge, és el primer de la llista dels seus menjars favorits... Això vol dir que l'Olí no és un ratolí de debò? S'atrevirà a lluitar pel pastís de pastanaga?",
+      "autor": "anna-godoy-lopez",
+      "il_lustrador": "ivan-godoy-lopez",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
+      "on_comprar": []
+    },
+    {
+      "slug": "el-xup-xup-de-laris",
+      "titol": "El xup-xup de l'Aris. Com es cuina un germanet",
+      "genere": "Conte infantil",
+      "isbn": "9788409604814",
+      "foto": "xupxup",
+      "alt": "Un infant llegint «El xup-xup de l'Aris. Com es cuina un germanet»",
+      "sinopsi": "Aviat tindreu un germanet o una germaneta? Potser fa poc que ha arribat a casa un nou infant? De què estan fets els petitons i les petitones de la llar? Quins són els millors ingredients per fer un nadó? Existeix una recepta per fer bebès? Cal que hi afegim sucre? Val més utilitzar el forn, el microones o la panificadora? Viu amb l'Aran l'aventura de cuinar un germanet! L'Aris va fent xup-xup i arriba per equilibrar la balança i... per desendreçar tot el nostre món de la manera més bonica. Benvingut, Aris!",
+      "autor": "anna-godoy-lopez",
+      "il_lustrador": "ivan-godoy-lopez",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
+      "on_comprar": []
+    },
+    {
+      "slug": "pi-pa-pipa",
+      "titol": "Pi, pa, pipa! Començo a llegir de mica en mica",
+      "genere": "Primeres lectures",
+      "isbn": "9788409711468",
+      "foto": "pipa",
+      "alt": "Un infant llegint «Pi, pa, pipa! Començo a llegir de mica en mica»",
+      "sinopsi": "Un llibre per acompanyar els infants en els primers anys de descoberta del món, ple de colors, formes, animals, objectes, números... i lletres! Les lletres ens obren la porta a una altra dimensió (infinita!) d'històries, d'aventures i de coneixements. L'objectiu de <em>Pi, pa, pipa!</em> és acompanyar els petits i les petites de la casa en l'aventura d'aprendre a llegir i en la de conèixer l'univers que ens envolta. Que comenci la música dels sons de les vocals i les consonants, per teixir, a poc a poc, el bonic camí de la lectura.",
+      "autor": "anna-godoy-lopez",
+      "il_lustrador": "ivan-godoy-lopez",
+      "descripcio": "",
+      "data_publicacio": "",
+      "format": "",
+      "pagines": null,
+      "edat_min": null,
+      "edat_max": null,
+      "on_comprar": []
+    }
+  ]
+}
