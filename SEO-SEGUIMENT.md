@@ -113,6 +113,8 @@ Decisió presa: **editorial independent en català de contes, àlbums il·lustra
 - ✅ (2026-10-18) Fitxes d'autor i de llibre: les rutes eren absolutes (`/img/...`, `/llibres/...`) i en previsualització local (servidor d'IntelliJ a `/portantveus/`) no carregaven ni les fotos de l'equip, ni les imatges dels contes, ni els enllaços a les fitxes. Ara el generador escriu rutes relatives (`../../img/...`). Les fotos d'autor són les mateixes del grup editorial (`img/equip-3.webp` per a l'Anna i `img/equip-1.webp` per a l'Ivan). Verificat servint el lloc sota un subdirectori: totes les imatges carreguen i els enllaços autor → llibre → autor funcionen.
 - ℹ️ `404.html` manté rutes absolutes a propòsit: GitHub Pages la serveix des de qualsevol URL i les relatives s'hi trencarien. Només es veu bé publicada o servida des de l'arrel.
 
+- ✅ (2026-10-18) *Sota la pluja, un mort i mig*: sinopsi definitiva (2 paràgrafs), autora «Teresa Juvé i Acero», gènere «Novel·la detectivesca» i col·lecció «Jaume Plagumà» (a la fitxa, a la targeta de la portada i a l'schema com a `isPartOf` → `BookSeries`). Per ara no hi ha pàgina d'autora: s'ha esborrat `autors/teresa-juve/`, l'autora té `"pagina": false` al JSON i el seu nom surt com a text, sense enllaç. Quan es vulgui la pàgina, només cal treure aquest camp i tornar a generar.
+
 ## 5. Comprovacions després de publicar
 - [ ] GitHub Pages → Settings → Pages: **Enforce HTTPS** activat.
 - [ ] `www.portantveus.cat` redirigeix a `portantveus.cat` (DNS a Cloudflare: CNAME `www` → `arnaug.github.io`).

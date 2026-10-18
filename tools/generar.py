@@ -69,10 +69,22 @@ def org_schema():
         o["sameAs"] = ED["xarxes"]
     return o
 
+def te_pagina(a):
+    return a.get("pagina", True)
+
 def persona_ref(slug):
     a = AUTORS[slug]
+    if not te_pagina(a):
+        return {"@type": "Person", "name": a["nom"]}
     return {"@type": "Person", "@id": f"{BASE}/autors/{slug}/#persona",
             "name": a["nom"], "url": f"{BASE}/autors/{slug}/"}
+
+def nom_autor(a):
+    """Nom de l'autor enllaçat a la seva pàgina, o com a text si no en té."""
+    return f'<a href="/autors/{a["slug"]}/">{e(a["nom"])}</a>' if te_pagina(a) else e(a["nom"])
+
+def paragrafs(txt):
+    return "".join(f"<p>{par.strip()}</p>" for par in txt.split("\n\n") if par.strip())
 
 def llibre_schema(b, complet=True):
     url = f"{BASE}/llibres/{b['slug']}/"
@@ -83,6 +95,7 @@ def llibre_schema(b, complet=True):
          "publisher": {"@id": f"{BASE}/#organization", "@type": "Organization", "name": ED["nom"]}}
     if b.get("isbn"): o["isbn"] = b["isbn"]
     if b.get("il_lustrador"): o["illustrator"] = persona_ref(b["il_lustrador"])
+    if b.get("col_leccio"): o["isPartOf"] = {"@type": "BookSeries", "name": b["col_leccio"]}
     if complet:
         o["@context"] = "https://schema.org"
         o["description"] = b["descripcio"] or text_pla(b["sinopsi"])
@@ -260,9 +273,10 @@ def generar_llibre(b):
     dades = []
     if b.get("isbn"): dades.append(("ISBN", isbn_guions(b["isbn"])))
     dades += [("Gènere", e(b["genere"]))]
-    if sec: dades.append(("Col·lecció", e(sec["nom"])))
-    dades += [("Idioma", "Català"), ("Text", f'<a href="/autors/{au["slug"]}/">{e(au["nom"])}</a>')]
-    if il: dades.append(("Il·lustracions", f'<a href="/autors/{il["slug"]}/">{e(il["nom"])}</a>'))
+    if b.get("col_leccio"): dades.append(("Col·lecció", e(b["col_leccio"])))
+    if sec: dades.append(("Secció", e(sec["nom"])))
+    dades += [("Idioma", "Català"), ("Text" if il else "Autoria", nom_autor(au))]
+    if il: dades.append(("Il·lustracions", nom_autor(il)))
     dades.append(("Editorial", "Portantveus"))
     if properament: dades.append(("Estat", "Properament"))
     if b.get("format"): dades.append(("Format", e(b["format"])))
@@ -284,8 +298,8 @@ def generar_llibre(b):
                    f'amb l\'ISBN <strong>{isbn_guions(b["isbn"])}</strong>, o escriu-nos a '
                    f'<a href="mailto:{ED["email"]}?subject={e("Comanda: " + b["titol"])}">{ED["email"]}</a> i te l\'enviem.</p></div>')
     altres = "".join(targeta(x) for x in D["llibres"] if x["slug"] != b["slug"])
-    autoria = (f'Text: <a href="/autors/{au["slug"]}/">{e(au["nom"])}</a> · Il·lustracions: <a href="/autors/{il["slug"]}/">{e(il["nom"])}</a>'
-               if il else f'<a href="/autors/{au["slug"]}/">{e(au["nom"])}</a>')
+    autoria = (f'Text: {nom_autor(au)} · Il·lustracions: {nom_autor(il)}' if il else nom_autor(au))
+    if b.get("col_leccio"): autoria += f' · Col·lecció {e(b["col_leccio"])}'
     cos = f"""    <div class="container">
       {molles([("Inici", "/"), ("Catàleg", "/#projectes")] + ([(sec["nom"], f"/#{sec['slug']}")] if sec else []) + [(b["titol"], None)])}
       <article class="fitxa">
@@ -297,7 +311,7 @@ def generar_llibre(b):
           <h1 class="titol">{e(b['titol'])}</h1>
           <p class="autoria">{autoria}</p>
           <h2 class="sub">Sinopsi</h2>
-          <div class="sinopsi"><p>{b['sinopsi']}</p></div>
+          <div class="sinopsi">{paragrafs(b['sinopsi'])}</div>
           <h2 class="sub">Fitxa tècnica</h2>
           <dl class="dades">{dl}</dl>
           {comprar}
@@ -380,7 +394,7 @@ def sitemap(urls):
 
 if __name__ == "__main__":
     urls = {"llibres": [generar_llibre(b) for b in D["llibres"]],
-            "autors": [generar_autor(a) for a in D["autors"]]}
+            "autors": [generar_autor(a) for a in D["autors"] if te_pagina(a)]}
     actualitzar_index()
     sitemap(urls)
     print(f"Generades {len(urls['llibres'])} pàgines de llibre, {len(urls['autors'])} d'autor, sitemap i JSON-LD d'index.html")

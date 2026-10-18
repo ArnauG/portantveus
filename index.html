@@ -254,18 +254,20 @@
         "name": "Sota la pluja, un mort i mig",
         "url": "https://portantveus.cat/llibres/sota-la-pluja-un-mort-i-mig/",
         "inLanguage": "ca",
-        "genre": "Novel·la",
+        "genre": "Novel·la detectivesca",
         "image": "https://portantveus.cat/img/llibre-sotalapluja-1400.webp",
         "author": {
           "@type": "Person",
-          "@id": "https://portantveus.cat/autors/teresa-juve/#persona",
-          "name": "Teresa Juvé",
-          "url": "https://portantveus.cat/autors/teresa-juve/"
+          "name": "Teresa Juvé i Acero"
         },
         "publisher": {
           "@id": "https://portantveus.cat/#organization",
           "@type": "Organization",
           "name": "Portantveus"
+        },
+        "isPartOf": {
+          "@type": "BookSeries",
+          "name": "Jaume Plagumà"
         }
       }
     }
@@ -820,6 +822,8 @@
       font-style: normal;
     }
 
+    .sinopsis-text + .sinopsis-text { margin-top: 0.8rem; }
+
     .status-badge {
       display: inline-flex;
       align-items: center;
@@ -850,7 +854,8 @@
     .llibre-autor a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--border); }
     .llibre-autor a:hover { color: var(--rust); }
     .llibre-link {
-      display: inline-block;
+      display: block;
+      width: fit-content;
       margin-top: 1rem;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
@@ -1181,7 +1186,7 @@
       <!-- SECCIÓ: INFANTS I JOVES -->
       <div class="cataleg-seccio" id="infants-i-joves">
         <div class="seccio-cap fade-up">
-          <span class="label">Col·lecció</span>
+          <span class="label">Secció</span>
           <h3>Infants i joves</h3>
           <p>Contes, àlbums il·lustrats i primeres lectures per als lectors i les lectores més menuts de la casa, escrits per l'Anna Godoy López i il·lustrats per l'Ivan Godoy López.</p>
         </div>
@@ -1328,7 +1333,7 @@
       <!-- SECCIÓ: NOVEL·LA -->
       <div class="cataleg-seccio" id="novella">
         <div class="seccio-cap fade-up">
-          <span class="label">Col·lecció</span>
+          <span class="label">Secció</span>
           <h3>Novel·la</h3>
           <p>Novel·la per a lectors adults: veus d'autors catalans que ens interpel·len i que es queden amb nosaltres un cop tanquem el llibre.</p>
         </div>
@@ -1342,21 +1347,22 @@
               <div class="cover-lines"></div>
               <p class="cover-title">Sota la pluja, un mort i mig</p>
               <div class="cover-lines"></div>
-              <p class="cover-author">Teresa Juvé</p>
+              <p class="cover-author">Teresa Juvé i Acero</p>
             </div>
           </div>
           <div class="llibre-info">
-            <span class="llibre-tag">Novel·la</span>
+            <span class="llibre-tag">Novel·la detectivesca</span>
             <h3 class="llibre-titol"><a href="llibres/sota-la-pluja-un-mort-i-mig/">Sota la pluja, un mort i mig</a></h3>
-            <p class="llibre-autor"><a href="autors/teresa-juve/">Teresa Juvé</a></p>
+            <p class="llibre-autor">Teresa Juvé i Acero · Col·lecció Jaume Plagumà</p>
             <div class="divider-line"></div>
             <p class="bio-label">Sinopsi</p>
-            <p class="sinopsis-text">Una novel·la de Teresa Juvé, l'autora de la sèrie del portantveus Jaume Plagumà, que inaugura la col·lecció de novel·la de Portantveus. Molt aviat en podreu llegir aquí la sinopsi completa.</p>
+            <p class="sinopsis-text">En Jaume Plagumà retorna als carrers de Barcelona, i ho fa amb la darrera història que va imaginar i escriure Teresa Juvé. El portantveus més íntegre del segle XVI intenta ara resoldre un enigma present amb la Inquisició i les traïcions dins del mateix bàndol com a protagonistes, mentre fa emergir de les ombres un cas del passat molt i molt personal: el testament novel·lístic més íntim de l’autora es troba en una arquitectura literària de dos temps que s’entrecreuen, en què la ficció deixa pas a la memòria del nostre país... i a la de la mateixa Teresa Juvé.</p>
+            <p class="sinopsis-text"><em>Sota la pluja, un mort i mig</em> és la primera de les novel·les inèdites que veurà la llum en un projecte que pretén fer ressorgir la figura literària de Teresa Juvé, amb la publicació de les històries de Jaume Plagumà que encara no han estat mai llegides.</p>
             <div class="status-badge">
               <span class="status-dot"></span>
               Properament
             </div>
-            <a class="llibre-link" href="llibres/sota-la-pluja-un-mort-i-mig/">Fitxa del llibre i de l'autora →</a>
+            <a class="llibre-link" href="llibres/sota-la-pluja-un-mort-i-mig/">Fitxa del llibre →</a>
           </div>
         </article>
 
