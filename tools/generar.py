@@ -9,7 +9,7 @@ Genera:
   - sitemap.xml
   - El bloc JSON-LD del catàleg i de l'Organization dins d'index.html (entre marcadors GEN)
 """
-import html, json, re, datetime, pathlib
+import hashlib, html, json, re, datetime, pathlib
 
 ARREL = pathlib.Path(__file__).resolve().parent.parent
 D = json.loads((ARREL / "_dades/llibres.json").read_text(encoding="utf-8"))
@@ -190,6 +190,42 @@ def relatiu(doc, prefix="../../"):
     doc = re.sub(r'(srcset="[^"]*)', lambda m: re.sub(r'(^srcset="|, )/(?!/)', lambda n: n.group(1) + prefix, m.group(1)), doc)
     return doc
 
+# ── Versionat d'estàtics (cache busting) ──────────────────────────────────────
+# Cada referència a una imatge/icona local rep "?v=<hash del contingut>". Si el fitxer
+# canvia, canvia l'URL i navegadors i Cloudflare el tornen a descarregar a l'instant;
+# si no canvia, l'URL és la mateixa i es pot fer servir la còpia en cache.
+EXT_VERSIONADES = ("webp", "png", "jpg", "jpeg", "gif", "svg", "ico", "css", "js")
+_RE_ACTIU = re.compile(
+    r'(?P<url>(?:https://portantveus\.cat)?[^\s"\',?#]*\.(?:' + "|".join(EXT_VERSIONADES) + r'))(?:\?v=[0-9a-f]+)?(?=[\s,]|$)')
+_hashos = {}
+
+def _hash_fitxer(path):
+    if path not in _hashos:
+        _hashos[path] = hashlib.sha1(path.read_bytes()).hexdigest()[:10] if path.is_file() else None
+    return _hashos[path]
+
+def versionar(doc, fitxer_html):
+    """Afegeix ?v=hash a src, srcset, href i content (og:image...) que apuntin a fitxers del lloc."""
+    carpeta = fitxer_html.parent
+    def una(url):
+        if url.startswith("https://portantveus.cat/"):
+            fisic = ARREL / url[len("https://portantveus.cat/"):]
+        elif url.startswith("/"):
+            fisic = ARREL / url.lstrip("/")
+        elif "://" in url or url.startswith("//"):
+            return None
+        else:
+            fisic = (carpeta / url).resolve()
+        return _hash_fitxer(fisic)
+    def atribut(m):
+        valor = _RE_ACTIU.sub(lambda u: u.group("url") + (f"?v={h}" if (h := una(u.group("url"))) else ""), m.group(2))
+        return f'{m.group(1)}="{valor}"'
+    return re.sub(r'\b(src|srcset|href|content)="([^"]*)"', atribut, doc)
+
+def escriure(path, doc):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(versionar(doc, path), encoding="utf-8")
+
 def pagina(titol, descripcio, canonical, og_img, og_alt, cos, schemas, og_type="website"):
     return relatiu(_pagina(titol, descripcio, canonical, og_img, og_alt, cos, schemas, og_type))
 
@@ -327,8 +363,7 @@ def generar_llibre(b):
     molla_sec = [(sec["nom"], f"{BASE}/#{sec['slug']}")] if sec else []
     schemas = [llibre_schema(b), breadcrumb([("Inici", f"{BASE}/"), ("Catàleg", f"{BASE}/#projectes")] + molla_sec + [(b["titol"], url)])]
     out = ARREL / "llibres" / b["slug"] / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(pagina(titol, desc, url, f"{BASE}/img/og-{b['foto']}.jpg", b["alt"], cos, schemas, "book"), encoding="utf-8")
+    escriure(out, pagina(titol, desc, url, f"{BASE}/img/og-{b['foto']}.jpg", b["alt"], cos, schemas, "book"))
     return url
 
 def generar_autor(a):
@@ -371,8 +406,7 @@ def generar_autor(a):
     </section>"""
     schemas = [person, breadcrumb([("Inici", f"{BASE}/"), (molla[0], BASE + molla[1]), (a["nom"], url)])]
     out = ARREL / "autors" / a["slug"] / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(pagina(titol, desc, url, f"{BASE}/og-image.png", "Portantveus — Editorial en català", cos, schemas, "profile"), encoding="utf-8")
+    escriure(out, pagina(titol, desc, url, f"{BASE}/og-image.png", "Portantveus — Editorial en català", cos, schemas, "profile"))
     return url
 
 def actualitzar_index():
@@ -383,7 +417,9 @@ def actualitzar_index():
     nou, n = re.subn(r"<!-- GEN:jsonld.*?<!-- /GEN:jsonld -->", lambda m: bloc, src, flags=re.S)
     if n != 1:
         raise SystemExit("No s'han trobat els marcadors GEN:jsonld a index.html")
-    p.write_text(nou, encoding="utf-8")
+    escriure(p, nou)
+    p404 = ARREL / "404.html"
+    escriure(p404, p404.read_text(encoding="utf-8"))
 
 def sitemap(urls):
     files = [(f"{BASE}/", "1.0")] + [(u, "0.8") for u in urls["llibres"]] + [(u, "0.6") for u in urls["autors"]]

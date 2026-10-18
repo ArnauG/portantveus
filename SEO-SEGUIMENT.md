@@ -115,6 +115,8 @@ Decisió presa: **editorial independent en català de contes, àlbums il·lustra
 
 - ✅ (2026-10-18) *Sota la pluja, un mort i mig*: sinopsi definitiva (2 paràgrafs), autora «Teresa Juvé i Acero», gènere «Novel·la detectivesca» i col·lecció «Jaume Plagumà» (a la fitxa, a la targeta de la portada i a l'schema com a `isPartOf` → `BookSeries`). Per ara no hi ha pàgina d'autora: s'ha esborrat `autors/teresa-juve/`, l'autora té `"pagina": false` al JSON i el seu nom surt com a text, sense enllaç. Quan es vulgui la pàgina, només cal treure aquest camp i tornar a generar.
 
+- ✅ (2026-10-18) **Versionat d'imatges (cache busting).** Cloudflare té *Browser Cache TTL* de 4 h, i per això els visitants podien veure imatges antigues fins a 4 hores després de publicar. Ara el generador afegeix `?v=<hash del contingut>` a totes les referències a imatges i icones locals (`src`, `srcset`, `href` d'icones i preload, `og:image`) a `index.html`, `404.html` i totes les pàgines generades. Si un fitxer canvia, canvia l'URL i es descarrega de nou; si no, es manté a la cache. **Cal executar `python3 tools/generar.py` després de canviar qualsevol imatge o d'editar `index.html`**, abans de fer commit.
+
 ## 5. Comprovacions després de publicar
 - [ ] GitHub Pages → Settings → Pages: **Enforce HTTPS** activat.
 - [ ] `www.portantveus.cat` redirigeix a `portantveus.cat` (DNS a Cloudflare: CNAME `www` → `arnaug.github.io`).
@@ -134,6 +136,8 @@ Tota la informació dels llibres i autors és a **`_dades/llibres.json`** (font 
 ```bash
 python3 tools/generar.py
 ```
+
+Executa'l també sempre que canviïs una imatge o editis `index.html`: actualitza el `?v=` de les imatges perquè els visitants vegin la versió nova sense esperar que caduqui la cache.
 
 Això regenera les fitxes de llibre, les pàgines d'autor, el `sitemap.xml` i el JSON-LD de la portada (entre els marcadors `<!-- GEN:jsonld -->` d'`index.html`; no l'editeu a mà). Els camps buits no es mostren ni s'afegeixen a l'schema.
 
