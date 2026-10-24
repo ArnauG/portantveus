@@ -277,7 +277,7 @@ def _pagina(titol, descripcio, canonical, og_img, og_alt, cos, schemas, og_type=
   </main>
   <footer class="peu">
     <div class="container">
-      <p>Editorial Portantveus · {e(ED['adreca']['codi_postal'])} {e(ED['adreca']['localitat'])} · <a href="mailto:{ED['email']}">{ED['email']}</a></p>
+      <p>Editorial Portantveus · {e(ED['adreca']['codi_postal'])} {e(ED['adreca']['localitat'])} · <a href="mailto:{ED['email']}">{ED['email']}</a><br>Els nostres events a: <a href="https://www.activapp.cat" target="_blank" rel="noopener">www.activapp.cat</a></p>
       <small>{datetime.date.today().year} Editorial Portantveus · Editorial independent en llengua catalana</small>
     </div>
   </footer>
