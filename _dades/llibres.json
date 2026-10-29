@@ -1,5 +1,5 @@
 {
-  "_instruccions": "Font única de dades. Després d'editar, executa: python3 tools/generar.py. Els camps buits no es mostren ni s'afegeixen a l'schema. on_comprar: llista de {\"nom\":..., \"url\":...}. format: 'Tapa dura' | 'Tapa tova' | 'Rústica'... data_publicacio: AAAA-MM-DD o AAAA. seccio: clau d'una entrada de 'seccions' (el catàleg de la portada s'agrupa per seccions). il_lustrador, isbn i foto d'autor són opcionals. estat: 'publicat' (per defecte) o 'properament'. equip: true si l'autor forma part de l'equip editorial (surt a l'Organization i a la secció L'equip). pagina: false en un autor = no es genera la seva pàgina ni s'hi enllaça (el nom surt com a text). col_leccio: nom de la col·lecció/sèrie del llibre (es mostra a la fitxa i genera isPartOf BookSeries). La sinopsi admet paràgrafs separats per una línia en blanc (\\n\\n).",
+  "_instruccions": "Font única de dades. Després d'editar, executa: python3 tools/generar.py. Els camps buits no es mostren ni s'afegeixen a l'schema. on_comprar: llista de {\"nom\":..., \"url\":...}. format: 'Tapa dura' | 'Tapa tova' | 'Rústica'... data_publicacio: AAAA-MM-DD o AAAA. seccio: clau d'una entrada de 'seccions' (el catàleg de la portada s'agrupa per seccions). il_lustrador, isbn i foto d'autor són opcionals. estat: 'publicat' (per defecte) o 'properament'. equip: true si l'autor forma part de l'equip editorial (surt a l'Organization i a la secció L'equip). pagina: false en un autor = no es genera la seva pàgina ni s'hi enllaça (el nom surt com a text). col_leccio: nom de la col·lecció/sèrie del llibre (es mostra a la fitxa i genera isPartOf BookSeries). La sinopsi admet paràgrafs separats per una línia en blanc (\\n\\n). foto_mida (autor): [amplada, alçada] de la foto si no és 600x800. foto_credit (autor): crèdit fotogràfic que es mostra sota la foto.",
   "editorial": {
     "nom": "Portantveus",
     "url": "https://portantveus.cat",
@@ -36,17 +36,23 @@
     {
       "slug": "teresa-juve",
       "nom": "Teresa Juvé i Acero",
-      "carrec": "Escriptora i pedagoga",
+      "carrec": "Escriptora i docent",
       "rol_schema": "Escriptora",
-      "foto": "",
+      "foto": "autor-teresa-juve",
       "inicials": "TJ",
       "equip": false,
       "naixement": "1921-02-07",
       "lloc_naixement": "Madrid",
       "defuncio": "2025-03-18",
-      "bio": "Teresa Juvé i Acero (Madrid, 1921 – 2025) va ser escriptora, pedagoga i professora. Filla de pare català, es va formar a Madrid i a l'Institut-Escola Ausiàs March de Barcelona. En acabar la Guerra Civil es va exiliar a França amb la família: a Tolosa va estudiar Filologia i Literatura Comparada i, durant la Segona Guerra Mundial, va ser agent d'enllaç de la Resistència francesa. Especialista en literatura occitana dels segles XVI i XVII, va dedicar la tesi al poeta Pèire Godolin.\n\nEl 1948 es va casar amb el polític i pedagog Josep Pallach, amb qui va fer de professora a França fins que van tornar a Catalunya el 1970, on va continuar dedicada a la docència.\n\nLa seva primera novel·la, <em>La charca en la ciudad</em>, va ser finalista del Premi Nadal el 1963, però no es va publicar fins al 2005, en català, amb el títol <em>L'aiguamort a la ciutat</em>. És coneguda sobretot per la sèrie de novel·les històriques i policíaques protagonitzades per Jaume Plagumà, portantveus del rei a la Catalunya de finals del segle XVI, que va començar amb <em>El portantveus s'ha equivocat</em> (1997) i que inclou títols com <em>Juguesca mortal</em> (2002), <em>La trampa</em> (2014), <em>L'arbre trencat</em> (2019) o <em>El degollador de Vallvidrera</em> (2021). També va escriure l'obra autobiogràfica <em>Tu ets jo. Flaixos per al meu blog</em> (2015).\n\nVa rebre la Creu de Sant Jordi (2010) i el Premi Memorial Francesc Macià (2018), i el 2021 la Generalitat va commemorar el centenari del seu naixement. Va ser presidenta d'honor de la Fundació Josep Pallach i sòcia d'honor de l'Associació d'Escriptors en Llengua Catalana. Va morir el març del 2025, als 104 anys.",
+      "bio": "Teresa Juvé i Acero (Madrid, 1921 - Esclanyà, 2025) va ser una escriptora i docent catalana que va viure més d’un segle. Juvé va deixar una petjada profunda, en la memòria històrica del país, i també en l’àmbit de l’educació i de la literatura.\n\nVa estudiar a la Institución Libre de Enseñanza de Madrid i, posteriorment, a l’Institut Escola Ausiàs March de Barcelona, tots dos centres capdavanters en la renovació i la modernització pedagògiques. L’esclat de la Guerra Civil la va empènyer a l’exili a França. Allà va estudiar Filologia i Literatura Comparada a Tolosa de Llenguadoc i va arribar a col·laborar activament amb la Resistència francesa durant la Segona Guerra Mundial. Es va casar el 1948 amb el polític i pedagog Josep Pallach abans de retornar a Catalunya el 1970, on va exercir de professora universitària.\n\nTeresa Juvé va compaginar la docència amb la creació literària. Es va donar a conèixer com a finalista del Premi Nadal el 1963 amb la novel·la <em>La charca en la ciudad</em> (més tard publicada en català com <em>L’aiguamort a la ciutat</em>). Molts anys després, va recollir molts dels seus records i vivències personals a <em>Tu ets jo. Flaixos per al meu blog</em>.\n\nLa seva obra més coneguda és la sèrie d’onze novel·les detectivesques ambientades a la Catalunya dels segles XVI i XVII, i protagonitzades per Jaume Plagumà, portantveus del rei. Aquesta saga, que combina el rigor històric amb la investigació de crims i el retrat de la societat de l’època, la integren els títols següents: <em>El portantveus s’ha equivocat</em>, <em>Un crim a l’Armada Invencible</em>, <em>La commedia dell’arte sota sospita</em>, <em>Juguesca mortal</em>, <em>Els assassins eren més d’un</em>, <em>La trampa</em>, <em>L’arbre trencat</em>, <em>El degollador de Vallvidrera</em>, <em>La ruta de la mort</em>, <em>Morts al peu del Reial Alcàsser</em> i <em>Plany per una dama perduda</em>.\n\nReconeguda amb la Creu de Sant Jordi de la Generalitat de Catalunya el 2010, la figura de Teresa Juvé destaca no només pel seu llegat narratiu, sinó també com a testimoni d’un segle definit per la lluita per la llibertat, la memòria i el compromís cultural.",
       "xarxes": [],
-      "pagina": false
+      "pagina": true,
+      "foto_mida": [
+        600,
+        900
+      ],
+      "foto_credit": "Foto: Paco Dalmau",
+      "lloc_defuncio": "Esclanyà"
     }
   ],
   "llibres": [
@@ -154,7 +160,7 @@
       "isbn": "",
       "foto": "sotalapluja",
       "alt": "Il·lustració de «Sota la pluja, un mort i mig»: un personatge amb un gran abric que s'amaga la cara darrere d'un rètol en blanc i sosté un llapis gegant",
-      "sinopsi": "En Jaume Plagumà retorna als carrers de Barcelona, i ho fa amb la darrera història que va imaginar i escriure Teresa Juvé. El portantveus més íntegre del segle XVI intenta ara resoldre un enigma present amb la Inquisició i les traïcions dins del mateix bàndol com a protagonistes, mentre fa emergir de les ombres un cas del passat molt i molt personal: el testament novel·lístic més íntim de l’autora es troba en una arquitectura literària de dos temps que s’entrecreuen, en què la ficció deixa pas a la memòria del nostre país... i a la de la mateixa Teresa Juvé.\n\n<em>Sota la pluja, un mort i mig</em> és la primera de les novel·les inèdites pòstumes que veurà la llum en un projecte que pretén redescobrir la figura literària de Teresa Juvé —guardonada amb la Creu de Sant Jordi de la Generalitat de Catalunya i finalista del Premi Nadal de novel·la amb <em>La charca en la ciudad</em>—, amb la publicació de les històries de Jaume Plagumà que encara no han estat mai llegides.",
+      "sinopsi": "En Jaume Plagumà retorna als carrers de Barcelona, i ho fa amb la darrera història que va imaginar i escriure Teresa Juvé. El portantveus del rei català més íntegre intenta ara resoldre un enigma present amb la Inquisició i les traïcions dins del mateix bàndol com a protagonistes, mentre fa emergir de les ombres un cas del passat molt i molt personal: el testament novel·lístic més íntim de l’autora es troba en una arquitectura literària de dos temps que s’entrecreuen, en què la ficció deixa pas a la memòria del nostre país... i a la de la mateixa Teresa Juvé.\n\n<em>Sota la pluja, un mort i mig</em> és la primera de les novel·les inèdites pòstumes que veurà la llum en un projecte que pretén redescobrir la figura literària de Teresa Juvé, amb la publicació de les històries de Jaume Plagumà que encara no han estat mai llegides.",
       "autor": "teresa-juve",
       "il_lustrador": "",
       "descripcio": "",

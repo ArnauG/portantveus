@@ -172,12 +172,14 @@ dl.dades dt{font-family:'Poppins',sans-serif;font-weight:600;font-size:.68rem;le
 .persona img{width:100%;height:auto;border-radius:16px;display:block}
 .persona-inicials{aspect-ratio:3/4;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--rust));display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;font-size:4.5rem;letter-spacing:.06em;color:rgba(255,255,255,.92)}
 .persona-bio p{margin-bottom:1rem}
+.persona-foto{margin:0}
+.credit-foto{font-family:'Poppins',sans-serif;font-size:.68rem;letter-spacing:.06em;color:var(--muted);margin-top:.5rem}
 .fitxa-img.paper{background:#FAF9F7;border:1px solid var(--border)}
 footer.peu{background:var(--ink);color:rgba(255,255,255,.65);padding:3rem 0;font-size:.9rem}
 footer.peu .container{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 footer.peu a{color:var(--gold);text-decoration:none}
 footer.peu small{font-family:'Poppins',sans-serif;font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.35)}
-@media (max-width:900px){.fitxa,.persona{grid-template-columns:1fr;gap:2rem}.persona img,.persona-inicials{max-width:320px}}
+@media (max-width:900px){.fitxa,.persona{grid-template-columns:1fr;gap:2rem}.persona img,.persona-inicials,.persona-foto{max-width:320px}}
 @media (max-width:600px){nav{padding:1rem 1.5rem}.nav-links{gap:1.1rem}.nav-links a{font-size:.62rem}.container{padding:0 1.25rem}}
 .nav-links a{white-space:nowrap}
 @media (max-width:480px){nav{padding:.8rem 1rem}.nav-links{gap:.9rem}.nav-links a{letter-spacing:.08em}.nav-links li:first-child{display:none}}
@@ -221,6 +223,8 @@ def versionar(doc, fitxer_html):
         valor = _RE_ACTIU.sub(lambda u: u.group("url") + (f"?v={h}" if (h := una(u.group("url"))) else ""), m.group(2))
         return f'{m.group(1)}="{valor}"'
     return re.sub(r'\b(src|srcset|href|content)="([^"]*)"', atribut, doc)
+
+SCRIPT_LOCAL = '<script>/* Previsualització local (file://): els enllaços a carpetes obren el seu index.html */if(location.protocol==="file:")document.querySelectorAll("a[href]").forEach(function(a){var h=a.getAttribute("href");if(!/^[a-z]+:|^\\/\\//i.test(h)){var m=h.match(/^([^#?]*)(.*)$/);if(m[1]===""&&h!=="")return;if(m[1]===""||m[1].slice(-1)==="/")a.setAttribute("href",(m[1]||"./")+"index.html"+m[2]);}});</script>'
 
 def escriure(path, doc):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -281,6 +285,7 @@ def _pagina(titol, descripcio, canonical, og_img, og_alt, cos, schemas, og_type=
       <small>{datetime.date.today().year} Editorial Portantveus · Editorial independent en llengua catalana</small>
     </div>
   </footer>
+  {SCRIPT_LOCAL}
 </body>
 </html>
 """
@@ -381,7 +386,10 @@ def generar_autor(a):
     if a.get("naixement"): person["birthDate"] = a["naixement"]
     if a.get("lloc_naixement"): person["birthPlace"] = {"@type": "Place", "name": a["lloc_naixement"]}
     if a.get("defuncio"): person["deathDate"] = a["defuncio"]
-    foto = (f'<img src="/img/{a["foto"]}.webp" alt="{e(a["nom"])}" width="600" height="800" fetchpriority="high" />'
+    if a.get("lloc_defuncio"): person["deathPlace"] = {"@type": "Place", "name": a["lloc_defuncio"]}
+    fw, fh = a.get("foto_mida") or (600, 800)
+    credit_foto = f'<figcaption class="credit-foto">{e(a["foto_credit"])}</figcaption>' if a.get("foto_credit") else ""
+    foto = (f'<figure class="persona-foto"><img src="/img/{a["foto"]}.webp" alt="{e(a["nom"])}" width="{fw}" height="{fh}" fetchpriority="high" />{credit_foto}</figure>'
             if a.get("foto") else f'<div class="persona-inicials" aria-hidden="true">{e(a.get("inicials", ""))}</div>')
     bio_html = "".join(f"<p>{par}</p>" for par in a["bio"].split("\n\n"))
     molla = ("L'equip", "/#equip") if equip else ("Catàleg", "/#projectes")
